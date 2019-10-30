@@ -1,0 +1,33 @@
+MODEL_NAME: 'ssd_mobilenet_v2_coco_2018_03_29'
+#ssd_mobilenet_v1_0.75_depth_300x300_coco14_sync_2018_07_03  - 12 fps
+#ssd_mobilenet_v1_ppn_shared_box_predictor_300x300_coco14_sync_2018_07_03  - 10 fps
+#ssdlite_mobilenet_v2_coco_2018_05_09'  - 8.5 fps
+#ssd_mobilenet_v2_coco_2018_03_29  - 7 fps
+#ssd_mobilenet_v1_fpn_shared_box_predictor_640x640_coco14_sync_2018_07_03  - 0.6 fps
+#ssd_resnet50_v1_fpn_shared_box_predictor_640x640_coco14_sync_2018_07_03  - 0.5 fps
+
+#ssd_mobilenet_v1_quantized_300x300_coco14_sync_2018_07_18  - Op type not registered 'TFLite_Detection_PostProcess' in binary running?
+#ssd_mobilenet_v1_0.75_depth_quantized_300x300_coco14_sync_2018_07_18  -  Op type not registered 'TFLite_Detection_PostProcess' in binary running
+NUM_CLASSES: 90
+DOWNLOAD_BASE: 'http://download.tensorflow.org/models/object_detection/'
+MIN_SCORE_THRESH: 0.5
+
+ARGS:
+  STREAM_IN: null
+  #VIDEO_SOURCE: 'http://admin:@192.168.0.7:80/media/?action=stream' #stream from local webcam
+  VIDEO_SOURCE: 0  #stream from laptop webcam
+  WIDTH: 640
+  HEIGHT: 480
+  STREAM_OUT: null
+
+DETECT:
+  CAT: 'cat'
+  DOG: 'dog'
+  PERSON: 'person'
+  CHAIR: 'chair'
+
+ROBOT:
+  IP: 'put local ip here'
+  TOKEN: 'put token here'
+  SOUND_DIR_HTTP: 'http://192.168.0.3/'
+  SOUND_DIR_FTP: '192.168.0.3'
