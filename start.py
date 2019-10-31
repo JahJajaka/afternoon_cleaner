@@ -16,20 +16,20 @@ robot_q = queue.Queue()
 # In[ ]:
 
 
-t = threading.Thread(target=obj_detection.recognition, args = (robot_q,), daemon=True)
-t.start()
+recognition_thread = threading.Thread(target=obj_detection.recognition, args = (robot_q,), daemon=True)
+recognition_thread.start()
 
 
 # In[ ]:
 
 
-t2 = threading.Thread(target=mi_sounds.sound_thread, args = (robot_q,), daemon=True)
-t2.start()
+sound_thread = threading.Thread(target=mi_sounds.sound_thread, args = (robot_q,), daemon=True)
+sound_thread.start()
 
 
 # In[ ]:
 
 
-t3 = threading.Thread(target=mi_control.moving_thread, args = (), daemon=True)
-t3.start()
+moving_thread = threading.Thread(target=mi_control.moving_thread, args = (), daemon=True)
+moving_thread.start()
 

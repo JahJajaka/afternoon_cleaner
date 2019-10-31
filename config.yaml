@@ -14,20 +14,18 @@ MIN_SCORE_THRESH: 0.5
 
 ARGS:
   STREAM_IN: null
-  #VIDEO_SOURCE: 'http://admin:@192.168.0.7:80/media/?action=stream' #stream from local webcam
-  VIDEO_SOURCE: 0  #stream from laptop webcam
+  VIDEO_SOURCE: 'http://user:password@local_ip:port/media/?action=stream' #stream from local webcam
+  #VIDEO_SOURCE: 0  #stream from laptop webcam
   WIDTH: 640
   HEIGHT: 480
   STREAM_OUT: null
 
-DETECT:
-  CAT: 'cat'
-  DOG: 'dog'
-  PERSON: 'person'
-  CHAIR: 'chair'
 
 ROBOT:
-  IP: 'put local ip here'
-  TOKEN: 'put token here'
+  IP: 'you Vacuum IP'
+  TOKEN: 'you token'
   SOUND_DIR_HTTP: 'http://192.168.0.3/'
-  SOUND_DIR_FTP: '192.168.0.3'
+  SOUND_DIR_FTP: 'you FTP IP'
+  FAN_SPEED: 1
+
+SOUND_PROBABILITY: 20 #integers from 0 to 100%

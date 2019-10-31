@@ -4,7 +4,6 @@
 # In[8]:
 
 import os
-import random
 import miio
 import pygame
 import time
@@ -63,7 +62,7 @@ def move_robot(bot, buttons, axis):
 def moving_thread():
     controller = init_joystick()
     bot = miio.vacuum.Vacuum(ip, token)
-    bot.set_fan_speed(1)
+    bot.set_fan_speed(cfg['ROBOT']['FAN_SPEED'])
     modes = ['manual', 'home', 'spot', 'cleaning', 'unk']
     mode = 'unk'
     axis = [0.00 for _ in range(6)]
