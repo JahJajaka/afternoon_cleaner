@@ -1,3 +1,12 @@
+# Afternoon cleaner
+is here to talk with you from time to time.
+
+## Overview
+With this app your Xiaomi Vacuum Cleaner be able to react on the things that he encounters during his daily routine. Forget about limited voice packages. Define any sound you like to hear from your Cleaner simply adding it to the ftp folder on your machine.
+
+## Demo
+coming soon...
+
 ## Requirements
 1. Your Xiaomi Vacuum Cleaner V1 must be rooted. All procedures were done for V1. I'm not sure if all the same is applicable for later versions   
 2. Webcam
