@@ -14,9 +14,9 @@ coming soon...
 4. Joystick for movements control (optional)
 
 
-## Setup  
+## Setup 
 
-1. Root Xiaomi Vacuum cleaner  
+**1. Root Xiaomi Vacuum cleaner**  
 
   ### Easy peasy way
 
@@ -41,30 +41,39 @@ coming soon...
   * Flash rooted firmware.  
       The same instructions:  https://github.com/dgiese/dustcloud/wiki/VacuumRobots-manual-update-root-Howto to install created package
 
-2. Install requirements.  
+**2. Install requirements.** 
 
-    pip install -r requirements.txt  
-    IMPORTANT: tensorflow 1.15, opencv 3.4
+`pip install -r requirements.txt`
 
-3. Setup sound capabilities.  
+IMPORTANT: tensorflow 1.15, opencv 3.4
+
+**3. Setup sound capabilities.** 
 
   * Setup local http/ftp server on your local machine and share sounds directory. You may choose other files and create other folders. The idea is that each folder corresponds to detected object class. 
   
   * On your Vacuum install sox:  
-        sudo apt-get update  
-        sudo apt-get install sox  
-        sudo apt-get install libsox-fmt-mp3  
-        sudo apt-get install wget  
+  
+    `sudo apt-get update `
+    
+    `sudo apt-get install sox  `
+    
+    `sudo apt-get install libsox-fmt-mp3 `
+    
+    `sudo apt-get install wget `
+       
       
   * Grant user: cleaner rights to play sounds:  
-        sudo usermod -a -G audio cleaner  
-        sudo reboot  
-      
-  * Copy sound_server.pl (from sounds folder) to /usr/bin directory of your Vacuum. Then run it:  
-        cd /usr/bin  
+        `sudo usermod -a -G audio cleaner  `
+        
+        `sudo reboot  `
+              
+  * Copy sound_server.pl (from sounds folder) to /usr/bin directory of your Vacuum. Then run it:
+  
+        cd /usr/bin
+        
         perl sound_server.pl  
 
-4. Edit config.yaml with your local settings. 
+**4. Edit config.yaml with your local settings.**
 
      VIDEO_SOURCE:  
      IP:  
@@ -74,16 +83,16 @@ coming soon...
      FAN_SPEED: #I reduce it to 1 in mi_control.py. it could be setup to 70 max  
      MODEL_NAME:  
 
-    you may find models here: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md. You may use segmentation models, but they wouldn't show mask and they are too slow anyway.
+  you may find models here: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md. You may use segmentation models, but they wouldn't show mask and they are too slow anyway.
 
-5. Open start.ipynb in Jupyter and make sure all pieces of the puzzle are in place.  
+**5. Open start.ipynb in Jupyter and make sure all pieces of the puzzle are in place.**  
 
-    * Webcam is connected and recognition is working (run recognition_thread)  
+  * Webcam is connected and recognition is working (run recognition_thread)  
     
-    * Vacuum plays the sounds (run sound_thread), which means sound_server and http/ftp server are running. Don't forget about SOUND_PROBABILITY parameter from config.yaml. It says how often your Vacuum will be react on detected objects.  
+  * Vacuum plays the sounds (run sound_thread), which means sound_server and http/ftp server are running. Don't forget about SOUND_PROBABILITY parameter from config.yaml. It says how often your Vacuum will be react on detected objects.  
     
-    * Joystick is connected and you can control Vacuum with it (run moving_thread)  
+  * Joystick is connected and you can control Vacuum with it (run moving_thread)  
     
 
-6. Run start.py and have fun.
+**6. Run start.py and have fun.**
 
