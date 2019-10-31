@@ -2,7 +2,7 @@
 is here to talk with you from time to time.
 
 ## Overview
-With this app your Xiaomi Vacuum Cleaner be able to react on the things that he encounters during his daily routine. Forget about limited voice packages. Define any sound you like to hear from your Cleaner simply adding it to the ftp folder on your machine.
+With this app your Xiaomi Vacuum Cleaner be able to react on the things that he encounters during his daily routine. Forget about limited voice packages. Define any sound you like to hear from your Cleaner simply adding it to the ftp folder on your computer. It will react differently on person, dog, chair or any recognizable object in your place. 
 
 ## Demo
 coming soon...
