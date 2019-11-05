@@ -92,7 +92,9 @@ IMPORTANT: python 3.6 (64bit in case of Windows), tensorflow 1.15, opencv 3.4
   * Vacuum plays the sounds (run sound_thread), which means sound_server and http/ftp server are running. Don't forget about `SOUND_PROBABILITY` parameter from `config.yaml`. It says how often your Vacuum will be react on detected objects.  
     
   * Joystick is connected and you can control Vacuum with it (run moving_thread)  
+  
+  * After you satisfied with the result, kill the kernel in Jupyter. 
     
 
-**6. Run start.py and have fun.**
+**6. Run: `python start.py` via CLI and have fun.**
 
