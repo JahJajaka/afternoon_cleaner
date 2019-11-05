@@ -3,33 +3,22 @@
 
 # In[ ]:
 
-
+import os
+import sys
 import queue
 import threading
 import time
 import mi_control
 import mi_sounds
 import obj_detection
-robot_q = queue.Queue()
+import concurrent.futures
 
 
-# In[ ]:
 
 
-recognition_thread = threading.Thread(target=obj_detection.recognition, args = (robot_q,), daemon=True)
-recognition_thread.start()
-
-
-# In[ ]:
-
-
-sound_thread = threading.Thread(target=mi_sounds.sound_thread, args = (robot_q,), daemon=True)
-sound_thread.start()
-
-
-# In[ ]:
-
-
-moving_thread = threading.Thread(target=mi_control.moving_thread, args = (), daemon=True)
-moving_thread.start()
-
+if __name__ == "__main__":
+    robot_q = queue.Queue()
+    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as executor:
+        executor.submit(obj_detection.recognition, robot_q)
+        executor.submit(mi_sounds.sound_thread, robot_q)
+        executor.submit(mi_control.moving_thread, robot_q)

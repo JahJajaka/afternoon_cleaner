@@ -26,12 +26,22 @@ def play(protocol, detected):
         play_sound_http(detected)
     elif protocol == "ftp":
         play_sound_ftp(detected)
+    elif protocol == "local":
+        play_sound_local(detected)
 
 def play_sound(file_path):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((ip, 7777))
     s.sendall(file_path)
     s.close()
+
+def play_sound_local(detected):
+    try:
+        file_path = cfg['ROBOT']['SOUND_DIR_LOCAL']
+        play_sound(file_path)
+    except:
+        print("smth wrong with the path")
+        print(file_path)
 
 def play_sound_http(detected):
     try:
@@ -57,10 +67,20 @@ def play_sound_ftp(detected):
     ftp.quit()
 
 
+
 def sound_thread(robot_q):
-    print ("sound thread initialized")
-    while True:
+    print ("Sound thread initialized")
+    num_det = 0
+    flag = True
+    while flag:
         while not robot_q.empty():
             detected = robot_q.get()
+            num_det +=1
             if (random.randrange(100) < cfg['SOUND_PROBABILITY']):
+                print(num_det)
+                num_det = 0
+                print(detected)
                 play('ftp', detected)
+            if (detected == "exit"):
+                print("Sound thread turned off")
+                flag = False

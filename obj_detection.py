@@ -5,6 +5,7 @@
 
 
 import os
+import sys
 import cv2
 import time
 import argparse
@@ -164,6 +165,8 @@ def recognition(robot_q):
         video_capture = WebcamVideoStream(src=args.video_source,
                                       width=args.width,
                                       height=args.height).start()
+        fourcc = cv2.VideoWriter_fourcc(*'XVID')
+        out = cv2.VideoWriter('output.avi', fourcc, 10.0, (640,480))
     fps = FPS().start()
 
     while True:
@@ -176,6 +179,7 @@ def recognition(robot_q):
         if output_q.empty():
             pass  # fill up queue
         else:
+
             font = cv2.FONT_HERSHEY_SIMPLEX
             data = output_q.get()
             rec_points = data['rect_points']
@@ -197,12 +201,16 @@ def recognition(robot_q):
             if args.stream_out:
                 print('Streaming elsewhere!')
             else:
+                out.write(frame)
                 cv2.imshow('Video', frame)
 
         fps.update()
 
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
+            robot_q.put("exit")
+            robot_q.put("exit")
+            robot_q.put("exit")
             break
 
     fps.stop()
@@ -210,4 +218,5 @@ def recognition(robot_q):
     print('[INFO] approx. FPS: {:.2f}'.format(fps.fps()))
 
     video_capture.stop()
+    out.release()
     cv2.destroyAllWindows()

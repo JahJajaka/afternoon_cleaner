@@ -59,17 +59,20 @@ def move_robot(bot, buttons, axis):
         bot.manual_control(rot, val, 150)
 
 
-def moving_thread():
+def moving_thread(robot_q):
     controller = init_joystick()
     bot = miio.vacuum.Vacuum(ip, token)
     bot.set_fan_speed(cfg['ROBOT']['FAN_SPEED'])
+    #pygame.init()
     modes = ['manual', 'home', 'spot', 'cleaning', 'unk']
     mode = 'unk'
     axis = [0.00 for _ in range(6)]
     flag = True
     button = [False for _ in range(14)]
-    print('Press start to start!')
+    print('Press X to start! Press Touchpad to exit ')
     while flag:
+        if (robot_q.get() == "exit"):
+            flag == False
         for event in pygame.event.get():
             if event.type == pygame.JOYAXISMOTION:
                 axis[event.axis] = round(event.value,2)
@@ -79,6 +82,7 @@ def moving_thread():
                 if event.button == 13:
                     bot.set_fan_speed(30)
                     flag = False
+                    print("Moving control turned off")
             elif event.type == pygame.JOYBUTTONUP:
                 if mode == 'unk':
                     print('Ready to go! Press X to start manual mode')

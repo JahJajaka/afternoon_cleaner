@@ -31,7 +31,7 @@ while(1)
     $client_socket->send($data);
     shutdown($client_socket, 1);
     if ( $urls[0] ne "") {
-        system("play -v 0.1 " . $urls[0]." &");
+        system("play -v 0.5 " . $urls[0]." &");
     }
 }
 
