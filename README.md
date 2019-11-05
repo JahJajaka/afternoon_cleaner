@@ -44,7 +44,7 @@ coming soon...
 
 `pip install -r requirements.txt`
 
-IMPORTANT: tensorflow 1.15, opencv 3.4
+IMPORTANT: python 3.6 (64bit in case of Windows), tensorflow 1.15, opencv 3.4
 
 **3. Setup sound capabilities.** 
 
