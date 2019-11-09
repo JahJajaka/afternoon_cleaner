@@ -1,10 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
 
-# In[ ]:
-
-import os
-import sys
 import queue
 import threading
 import time
@@ -21,4 +15,4 @@ if __name__ == "__main__":
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as executor:
         executor.submit(obj_detection.recognition, robot_q)
         executor.submit(mi_sounds.sound_thread, robot_q)
-        executor.submit(mi_control.moving_thread, robot_q)
+        executor.submit(mi_control.moving_thread)

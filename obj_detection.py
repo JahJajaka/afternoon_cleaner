@@ -195,7 +195,7 @@ def recognition(robot_q):
                           0.3, (0, 0, 0), 1)
                 name_only = name[0].split(':')[0]
                 robot_q.put(name_only)
-                if robot_q.qsize()==2:
+                if robot_q.qsize()>1:
                     with robot_q.mutex:
                         robot_q.queue.clear()
             if args.stream_out:
@@ -208,8 +208,6 @@ def recognition(robot_q):
 
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
-            robot_q.put("exit")
-            robot_q.put("exit")
             robot_q.put("exit")
             break
 
