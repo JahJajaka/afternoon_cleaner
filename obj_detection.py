@@ -11,6 +11,7 @@ import time
 import argparse
 import easydict
 import numpy  as np
+import shutil
 import subprocess as sp
 import json
 import tarfile
@@ -32,8 +33,8 @@ cfg = load_yaml(config_folder)
 MODEL_NAME =cfg['MODEL_NAME']
 MODEL_FILE = MODEL_NAME + '.tar.gz'
 #data = urllib.parse.urlencode(MODEL_FILE).encode("utf-8")
-#PATH_TO_CKPT = os.path.join(CWD_PATH, 'object_detection', MODEL_NAME, 'tflite_graph.pb')
-PATH_TO_CKPT = os.path.join(CWD_PATH, 'object_detection', MODEL_NAME, 'frozen_inference_graph.pb')
+#PATH_TO_CKPT = os.path.join(CWD_PATH, 'object_detection', 'datasets', MODEL_NAME, 'tflite_graph.pb')
+PATH_TO_CKPT = os.path.join(CWD_PATH, 'object_detection', 'datasets', MODEL_NAME, 'frozen_inference_graph.pb')
 
 # List of the strings that is used to add correct label for each box.
 PATH_TO_LABELS = os.path.join(CWD_PATH, 'object_detection', 'data', 'mscoco_label_map.pbtxt')
@@ -49,12 +50,8 @@ category_index = label_map_util.create_category_index(categories)
 #Download MODEL
 if not os.path.exists(PATH_TO_CKPT):
     DOWNLOAD_BASE = cfg['DOWNLOAD_BASE']
-    response=requests.get(DOWNLOAD_BASE + MODEL_FILE)
-    tar_file = tarfile.open(response)
-    for file in tar_file.getmembers():
-      file_name = os.path.basename(file.name)
-      if 'frozen_inference_graph.pb' in file_name:
-        tar_file.extract(file, os.getcwd())
+    DOWONLOAD_DIRECTORY = os.path.join(CWD_PATH, 'object_detection')
+    model_dir = tf.keras.utils.get_file(fname=MODEL_NAME,origin=DOWNLOAD_BASE + MODEL_FILE,untar=True,cache_dir=DOWONLOAD_DIRECTORY)
 # In[3]:
 
 
