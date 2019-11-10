@@ -20,6 +20,7 @@ ARGS:
   HEIGHT: 480
   STREAM_OUT: null
 
+DETECTED: ['person', 'dog', 'bowl', 'refrigerator']
 
 ROBOT:
   IP: 'vacuum_ip'
