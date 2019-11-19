@@ -14,21 +14,19 @@ import numpy  as np
 import shutil
 import subprocess as sp
 import json
-import tarfile
-import six.moves.urllib as urllib
 import tensorflow as tf
-import requests
 
 from queue import Queue
 from threading import Thread
 from object_detection.utils.app_utils import load_yaml, FPS, HLSVideoStream, WebcamVideoStream, draw_boxes_and_labels
 from object_detection.utils import label_map_util
-
+from object_detection.utils import data_utils
 
 # In[2]:
 CWD_PATH = os.getcwd()
 config_folder =os.path.join(CWD_PATH, 'config.yaml')
 cfg = load_yaml(config_folder)
+
 # Path to frozen detection graph. This is the actual model that is used for the object detection.
 MODEL_NAME =cfg['MODEL_NAME']
 MODEL_FILE = MODEL_NAME + '.tar.gz'
@@ -38,7 +36,7 @@ PATH_TO_CKPT = os.path.join(CWD_PATH, 'object_detection', 'datasets', MODEL_NAME
 
 # List of the strings that is used to add correct label for each box.
 PATH_TO_LABELS = os.path.join(CWD_PATH, 'object_detection', 'data', 'mscoco_label_map.pbtxt')
-
+MY_DATASET = os.path.join(CWD_PATH, 'object_detection', 'datasets', 'my_dataset', 'full_dataset')
 NUM_CLASSES =  cfg['NUM_CLASSES']
 
 # Loading label map
@@ -46,6 +44,11 @@ label_map = label_map_util.load_labelmap(PATH_TO_LABELS)
 categories = label_map_util.convert_label_map_to_categories(label_map, max_num_classes=NUM_CLASSES,
                                                             use_display_name=True)
 category_index = label_map_util.create_category_index(categories)
+
+#own label_map for TRAINING_MODE
+PATH_TO_MY_LABELS = os.path.join(CWD_PATH, 'object_detection', 'data', 'afternoon_cleaner_label_map.pbtxt')
+my_labels = label_map_util.get_label_map_dict(PATH_TO_MY_LABELS)
+
 
 #Download MODEL
 if not os.path.exists(PATH_TO_CKPT):
@@ -122,6 +125,9 @@ def worker(input_q, output_q):
 
 
 def recognition(robot_q):
+    last_saved = 0
+    annotations = {}
+    annotations['images'] = []
     parser = argparse.ArgumentParser()
     #parser.add_argument('-strin', '--stream-input', dest="stream_in", action='store', type=str, default=None)
     #parser.add_argument('-src', '--source', dest='video_source', type=str,
@@ -176,7 +182,6 @@ def recognition(robot_q):
         if output_q.empty():
             pass  # fill up queue
         else:
-
             font = cv2.FONT_HERSHEY_SIMPLEX
             data = output_q.get()
             rec_points = data['rect_points']
@@ -185,6 +190,27 @@ def recognition(robot_q):
             for point, name, color in zip(rec_points, class_names, class_colors):
                 name_only = name[0].split(':')[0]
                 if name_only in cfg['DETECTED']:
+                    if cfg['TRAINING_MODE']:
+                        if name_only==cfg['MAIN_CLASS']:
+                            name_only = cfg['SUBCLASS']
+                        if t > last_saved + cfg['SAVE_FRAME']:
+                            jpg_name = "{}\\{}_{}.jpg".format(MY_DATASET, name_only, t)
+                            cv2.imwrite(jpg_name, frame)
+                            last_saved = t
+                            annotations['images'].append({
+                                'height': args.height,
+                                'width': args.width,
+                                'file_name': jpg_name.split('\\')[-1],
+                                'xmin': [point['xmin'] / args.width],
+                                'xmax': [point['xmax'] / args.width],
+                                'ymin': [point['ymin'] / args.height],
+                                'ymax': [point['ymax'] / args.height],
+                                'image_format': 'jpg',
+                                'class_text': [name_only],
+                                'class': [my_labels.get(name_only)]
+                            })
+
+
                     cv2.rectangle(frame, (int(point['xmin'] * args.width), int(point['ymin'] * args.height)),
                                   (int(point['xmax'] * args.width), int(point['ymax'] * args.height)), color, 3)
                     cv2.rectangle(frame, (int(point['xmin'] * args.width), int(point['ymin'] * args.height)),
@@ -192,6 +218,8 @@ def recognition(robot_q):
                                    int(point['ymin'] * args.height) - 10), color, -1, cv2.LINE_AA)
                     cv2.putText(frame, name[0], (int(point['xmin'] * args.width), int(point['ymin'] * args.height)), font,
                               0.3, (0, 0, 0), 1)
+
+
                     robot_q.put(name_only)
                     if robot_q.qsize()>2:
                         with robot_q.mutex:
@@ -206,6 +234,9 @@ def recognition(robot_q):
 
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
+            if cfg['TRAINING_MODE']:
+                json_path = os.path.join(MY_DATASET,'annotations.json')
+                data_utils.save_annotations(json_path,annotations)
             robot_q.put("exit")
             break
 

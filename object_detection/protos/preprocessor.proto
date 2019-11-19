@@ -3,7 +3,7 @@ syntax = "proto2";
 package object_detection.protos;
 
 // Message for defining a preprocessing operation on input data.
-// See: //object_detection/core/preprocessor.py
+// See: //third_party/tensorflow_models/object_detection/core/preprocessor.py
 message PreprocessingStep {
   oneof preprocessing_step {
     NormalizeImage normalize_image = 1;
@@ -29,6 +29,16 @@ message PreprocessingStep {
     SSDRandomCrop ssd_random_crop = 21;
     SSDRandomCropPad ssd_random_crop_pad = 22;
     SSDRandomCropFixedAspectRatio ssd_random_crop_fixed_aspect_ratio = 23;
+    SSDRandomCropPadFixedAspectRatio ssd_random_crop_pad_fixed_aspect_ratio = 24;
+    RandomVerticalFlip random_vertical_flip = 25;
+    RandomRotation90 random_rotation90 = 26;
+    RGBtoGray rgb_to_gray = 27;
+    ConvertClassLogitsToSoftmax convert_class_logits_to_softmax = 28;
+    RandomAbsolutePadImage random_absolute_pad_image = 29;
+    RandomSelfConcatImage random_self_concat_image = 30;
+    AutoAugmentImage autoaugment_image = 31;
+    DropLabelProbabilistically drop_label_probabilistically = 32;
+    RemapLabels remap_labels = 33;
   }
 }
 
@@ -42,9 +52,43 @@ message NormalizeImage {
   optional float target_maxval = 4 [default=1];
 }
 
-// Randomly horizontally mirrors the image and detections 50% of the time.
+// Randomly horizontally flips the image and detections 50% of the time.
 message RandomHorizontalFlip {
+  // Specifies a mapping from the original keypoint indices to horizontally
+  // flipped indices. This is used in the event that keypoints are specified,
+  // in which case when the image is horizontally flipped the keypoints will
+  // need to be permuted. E.g. for keypoints representing left_eye, right_eye,
+  // nose_tip, mouth, left_ear, right_ear (in that order), one might specify
+  // the keypoint_flip_permutation below:
+  // keypoint_flip_permutation: 1
+  // keypoint_flip_permutation: 0
+  // keypoint_flip_permutation: 2
+  // keypoint_flip_permutation: 3
+  // keypoint_flip_permutation: 5
+  // keypoint_flip_permutation: 4
+  repeated int32 keypoint_flip_permutation = 1;
 }
+
+// Randomly vertically flips the image and detections 50% of the time.
+message RandomVerticalFlip {
+  // Specifies a mapping from the original keypoint indices to vertically
+  // flipped indices. This is used in the event that keypoints are specified,
+  // in which case when the image is vertically flipped the keypoints will
+  // need to be permuted. E.g. for keypoints representing left_eye, right_eye,
+  // nose_tip, mouth, left_ear, right_ear (in that order), one might specify
+  // the keypoint_flip_permutation below:
+  // keypoint_flip_permutation: 1
+  // keypoint_flip_permutation: 0
+  // keypoint_flip_permutation: 2
+  // keypoint_flip_permutation: 3
+  // keypoint_flip_permutation: 5
+  // keypoint_flip_permutation: 4
+  repeated int32 keypoint_flip_permutation = 1;
+}
+
+// Randomly rotates the image and detections by 90 degrees counter-clockwise
+// 50% of the time.
+message RandomRotation90 {}
 
 // Randomly scales the values of all pixels in the image by some constant value
 // between [minval, maxval], then clip the value to a range between [0, 1.0].
@@ -116,6 +160,9 @@ message RandomCropImage {
   // value, it is removed from the new image.
   optional float overlap_thresh = 6 [default=0.3];
 
+  // Whether to clip the boxes to the cropped image.
+  optional bool clip_boxes = 8 [default=true];
+
   // Probability of keeping the original image.
   optional float random_coef = 7 [default=0.0];
 }
@@ -124,17 +171,29 @@ message RandomCropImage {
 message RandomPadImage {
   // Minimum dimensions for padded image. If unset, will use original image
   // dimension as a lower bound.
-  optional float min_image_height = 1;
-  optional float min_image_width = 2;
+  optional int32 min_image_height = 1;
+  optional int32 min_image_width = 2;
 
   // Maximum dimensions for padded image. If unset, will use double the original
   // image dimension as a lower bound.
-  optional float max_image_height = 3;
-  optional float max_image_width = 4;
+  optional int32 max_image_height = 3;
+  optional int32 max_image_width = 4;
 
   // Color of the padding. If unset, will pad using average color of the input
   // image.
   repeated float pad_color = 5;
+}
+
+// Randomly adds a padding of size [0, max_height_padding), [0, max_width_padding).
+message RandomAbsolutePadImage {
+  // Height will be padded uniformly at random from [0, max_height_padding).
+  optional int32 max_height_padding = 1;
+  // Width will be padded uniformly at random from [0, max_width_padding).
+  optional int32 max_width_padding = 2;
+
+  // Color of the padding. If unset, will pad using average color of the input
+  // image.
+  repeated float pad_color = 3;
 }
 
 // Randomly crops an image followed by a random pad.
@@ -155,6 +214,9 @@ message RandomCropPadImage {
   // value, it is removed from the new image.
   optional float overlap_thresh = 6 [default=0.3];
 
+  // Whether to clip the boxes to the cropped image.
+  optional bool clip_boxes = 11 [default=true];
+
   // Probability of keeping the original image during the crop operation.
   optional float random_coef = 7 [default=0.0];
 
@@ -165,7 +227,7 @@ message RandomCropPadImage {
   repeated float max_padded_size_ratio = 9;
 
   // Color of the padding. If unset, will pad using average color of the input
-  // image.
+  // image. This field should be of length 3.
   repeated float pad_color = 10;
 }
 
@@ -178,6 +240,9 @@ message RandomCropToAspectRatio {
   // ratio between a cropped bounding box and the original is less than this
   // value, it is removed from the new image.
   optional float overlap_thresh = 2 [default=0.3];
+
+  // Whether to clip the boxes to the cropped image.
+  optional bool clip_boxes = 3 [default=true];
 }
 
 // Randomly adds black square patches to an image.
@@ -195,9 +260,14 @@ message RandomBlackPatches {
 
 // Randomly resizes the image up to [target_height, target_width].
 message RandomResizeMethod {
-  optional float target_height = 1;
-  optional float target_width = 2;
+  optional int32 target_height = 1;
+  optional int32 target_width = 2;
 }
+
+// Converts the RGB image to a grayscale image. This also converts the image
+// depth from 3 to 1, unlike RandomRGBtoGray which does not change the image
+// depth.
+message RGBtoGray {}
 
 // Scales boxes from normalized coordinates to pixel coordinates.
 message ScaleBoxesToPixelCoordinates {
@@ -241,6 +311,9 @@ message SSDRandomCropOperation {
   // Cropped box area ratio must be above this threhold to be kept.
   optional float overlap_thresh = 6;
 
+  // Whether to clip the boxes to the cropped image.
+  optional bool clip_boxes = 8 [default=true];
+
   // Probability a crop operation is skipped.
   optional float random_coef = 7;
 }
@@ -270,6 +343,9 @@ message SSDRandomCropPadOperation {
 
   // Cropped box area ratio must be above this threhold to be kept.
   optional float overlap_thresh = 6;
+
+  // Whether to clip the boxes to the cropped image.
+  optional bool clip_boxes = 13 [default=true];
 
   // Probability a crop operation is skipped.
   optional float random_coef = 7;
@@ -309,6 +385,9 @@ message SSDRandomCropFixedAspectRatioOperation {
   // Cropped box area ratio must be above this threhold to be kept.
   optional float overlap_thresh = 6;
 
+  // Whether to clip the boxes to the cropped image.
+  optional bool clip_boxes = 8 [default=true];
+
   // Probability a crop operation is skipped.
   optional float random_coef = 7;
 }
@@ -323,4 +402,91 @@ message SSDRandomCropFixedAspectRatio {
 
   // Aspect ratio to crop to. This value is used for all crop operations.
   optional float aspect_ratio = 2 [default=1.0];
+}
+
+message SSDRandomCropPadFixedAspectRatioOperation {
+  // Cropped image must cover at least this fraction of one original bounding
+  // box.
+  optional float min_object_covered = 1;
+
+  // The aspect ratio of the cropped image must be within the range of
+  // [min_aspect_ratio, max_aspect_ratio].
+  optional float min_aspect_ratio = 2;
+  optional float max_aspect_ratio = 3;
+
+  // The area of the cropped image must be within the range of
+  // [min_area, max_area].
+  optional float min_area = 4;
+  optional float max_area = 5;
+
+  // Cropped box area ratio must be above this threhold to be kept.
+  optional float overlap_thresh = 6;
+
+  // Whether to clip the boxes to the cropped image.
+  optional bool clip_boxes = 8 [default=true];
+
+  // Probability a crop operation is skipped.
+  optional float random_coef = 7;
+}
+
+// Randomly crops and pads an image to a fixed aspect ratio according to:
+//     Liu et al., SSD: Single shot multibox detector.
+// Multiple SSDRandomCropPadFixedAspectRatioOperations are defined by this
+// preprocessing step. Only one operation (chosen at random) is actually
+// performed on an image.
+message SSDRandomCropPadFixedAspectRatio {
+  repeated SSDRandomCropPadFixedAspectRatioOperation operations = 1;
+
+  // Aspect ratio to pad to. This value is used for all crop and pad operations.
+  optional float aspect_ratio = 2 [default=1.0];
+
+  // Min ratio of padded image height and width to the input image's height and
+  // width. Two entries per operation.
+  repeated float min_padded_size_ratio = 3;
+
+  // Max ratio of padded image height and width to the input image's height and
+  // width. Two entries per operation.
+  repeated float max_padded_size_ratio = 4;
+}
+
+// Converts class logits to softmax optionally scaling the values by temperature
+// first.
+message ConvertClassLogitsToSoftmax {
+
+  // Scale to use on logits before applying softmax.
+  optional float temperature = 1 [default=1.0];
+}
+
+// Randomly concatenates the image with itself horizontally and/or vertically.
+message RandomSelfConcatImage {
+  // Probability of concatenating the image vertically.
+  optional float concat_vertical_probability = 1 [default = 0.1];
+  // Probability of concatenating the image horizontally.
+  optional float concat_horizontal_probability = 2 [default = 0.1];
+}
+
+// Apply an Autoaugment policy to the image and bounding boxes.
+message AutoAugmentImage {
+
+  // What AutoAugment policy to apply to the Image
+  optional string policy_name = 1 [default="v0"];
+}
+
+
+// Randomly drops ground truth boxes for a label with some probability.
+message DropLabelProbabilistically {
+  // The label that should be dropped. This corresponds to one of the entries
+  // in the label map.
+  optional int32 label = 1;
+  // Probability of dropping the label.
+  optional float drop_probability = 2 [default = 1.0];
+}
+
+
+//Remap a set of labels to a new label.
+message RemapLabels {
+   // Labels to be remapped.
+  repeated int32 original_labels = 1;
+  // Label to map to.
+  optional int32 new_label = 2;
 }

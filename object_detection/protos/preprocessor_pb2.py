@@ -18,9 +18,9 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='object_detection/protos/preprocessor.proto',
   package='object_detection.protos',
-  serialized_pb=_b('\n*object_detection/protos/preprocessor.proto\x12\x17object_detection.protos\"\xad\x0e\n\x11PreprocessingStep\x12\x42\n\x0fnormalize_image\x18\x01 \x01(\x0b\x32\'.object_detection.protos.NormalizeImageH\x00\x12O\n\x16random_horizontal_flip\x18\x02 \x01(\x0b\x32-.object_detection.protos.RandomHorizontalFlipH\x00\x12R\n\x18random_pixel_value_scale\x18\x03 \x01(\x0b\x32..object_detection.protos.RandomPixelValueScaleH\x00\x12G\n\x12random_image_scale\x18\x04 \x01(\x0b\x32).object_detection.protos.RandomImageScaleH\x00\x12\x46\n\x12random_rgb_to_gray\x18\x05 \x01(\x0b\x32(.object_detection.protos.RandomRGBtoGrayH\x00\x12S\n\x18random_adjust_brightness\x18\x06 \x01(\x0b\x32/.object_detection.protos.RandomAdjustBrightnessH\x00\x12O\n\x16random_adjust_contrast\x18\x07 \x01(\x0b\x32-.object_detection.protos.RandomAdjustContrastH\x00\x12\x45\n\x11random_adjust_hue\x18\x08 \x01(\x0b\x32(.object_detection.protos.RandomAdjustHueH\x00\x12S\n\x18random_adjust_saturation\x18\t \x01(\x0b\x32/.object_detection.protos.RandomAdjustSaturationH\x00\x12K\n\x14random_distort_color\x18\n \x01(\x0b\x32+.object_detection.protos.RandomDistortColorH\x00\x12I\n\x13random_jitter_boxes\x18\x0b \x01(\x0b\x32*.object_detection.protos.RandomJitterBoxesH\x00\x12\x45\n\x11random_crop_image\x18\x0c \x01(\x0b\x32(.object_detection.protos.RandomCropImageH\x00\x12\x43\n\x10random_pad_image\x18\r \x01(\x0b\x32\'.object_detection.protos.RandomPadImageH\x00\x12L\n\x15random_crop_pad_image\x18\x0e \x01(\x0b\x32+.object_detection.protos.RandomCropPadImageH\x00\x12W\n\x1brandom_crop_to_aspect_ratio\x18\x0f \x01(\x0b\x32\x30.object_detection.protos.RandomCropToAspectRatioH\x00\x12K\n\x14random_black_patches\x18\x10 \x01(\x0b\x32+.object_detection.protos.RandomBlackPatchesH\x00\x12K\n\x14random_resize_method\x18\x11 \x01(\x0b\x32+.object_detection.protos.RandomResizeMethodH\x00\x12\x61\n scale_boxes_to_pixel_coordinates\x18\x12 \x01(\x0b\x32\x35.object_detection.protos.ScaleBoxesToPixelCoordinatesH\x00\x12<\n\x0cresize_image\x18\x13 \x01(\x0b\x32$.object_detection.protos.ResizeImageH\x00\x12M\n\x15subtract_channel_mean\x18\x14 \x01(\x0b\x32,.object_detection.protos.SubtractChannelMeanH\x00\x12\x41\n\x0fssd_random_crop\x18\x15 \x01(\x0b\x32&.object_detection.protos.SSDRandomCropH\x00\x12H\n\x13ssd_random_crop_pad\x18\x16 \x01(\x0b\x32).object_detection.protos.SSDRandomCropPadH\x00\x12\x64\n\"ssd_random_crop_fixed_aspect_ratio\x18\x17 \x01(\x0b\x32\x36.object_detection.protos.SSDRandomCropFixedAspectRatioH\x00\x42\x14\n\x12preprocessing_step\"v\n\x0eNormalizeImage\x12\x17\n\x0foriginal_minval\x18\x01 \x01(\x02\x12\x17\n\x0foriginal_maxval\x18\x02 \x01(\x02\x12\x18\n\rtarget_minval\x18\x03 \x01(\x02:\x01\x30\x12\x18\n\rtarget_maxval\x18\x04 \x01(\x02:\x01\x31\"\x16\n\x14RandomHorizontalFlip\"A\n\x15RandomPixelValueScale\x12\x13\n\x06minval\x18\x01 \x01(\x02:\x03\x30.9\x12\x13\n\x06maxval\x18\x02 \x01(\x02:\x03\x31.1\"L\n\x10RandomImageScale\x12\x1c\n\x0fmin_scale_ratio\x18\x01 \x01(\x02:\x03\x30.5\x12\x1a\n\x0fmax_scale_ratio\x18\x02 \x01(\x02:\x01\x32\"+\n\x0fRandomRGBtoGray\x12\x18\n\x0bprobability\x18\x01 \x01(\x02:\x03\x30.1\"0\n\x16RandomAdjustBrightness\x12\x16\n\tmax_delta\x18\x01 \x01(\x02:\x03\x30.2\"G\n\x14RandomAdjustContrast\x12\x16\n\tmin_delta\x18\x01 \x01(\x02:\x03\x30.8\x12\x17\n\tmax_delta\x18\x02 \x01(\x02:\x04\x31.25\"*\n\x0fRandomAdjustHue\x12\x17\n\tmax_delta\x18\x01 \x01(\x02:\x04\x30.02\"I\n\x16RandomAdjustSaturation\x12\x16\n\tmin_delta\x18\x01 \x01(\x02:\x03\x30.8\x12\x17\n\tmax_delta\x18\x02 \x01(\x02:\x04\x31.25\",\n\x12RandomDistortColor\x12\x16\n\x0e\x63olor_ordering\x18\x01 \x01(\x05\"(\n\x11RandomJitterBoxes\x12\x13\n\x05ratio\x18\x01 \x01(\x02:\x04\x30.05\"\xd1\x01\n\x0fRandomCropImage\x12\x1d\n\x12min_object_covered\x18\x01 \x01(\x02:\x01\x31\x12\x1e\n\x10min_aspect_ratio\x18\x02 \x01(\x02:\x04\x30.75\x12\x1e\n\x10max_aspect_ratio\x18\x03 \x01(\x02:\x04\x31.33\x12\x15\n\x08min_area\x18\x04 \x01(\x02:\x03\x30.1\x12\x13\n\x08max_area\x18\x05 \x01(\x02:\x01\x31\x12\x1b\n\x0eoverlap_thresh\x18\x06 \x01(\x02:\x03\x30.3\x12\x16\n\x0brandom_coef\x18\x07 \x01(\x02:\x01\x30\"\x89\x01\n\x0eRandomPadImage\x12\x18\n\x10min_image_height\x18\x01 \x01(\x02\x12\x17\n\x0fmin_image_width\x18\x02 \x01(\x02\x12\x18\n\x10max_image_height\x18\x03 \x01(\x02\x12\x17\n\x0fmax_image_width\x18\x04 \x01(\x02\x12\x11\n\tpad_color\x18\x05 \x03(\x02\"\xa5\x02\n\x12RandomCropPadImage\x12\x1d\n\x12min_object_covered\x18\x01 \x01(\x02:\x01\x31\x12\x1e\n\x10min_aspect_ratio\x18\x02 \x01(\x02:\x04\x30.75\x12\x1e\n\x10max_aspect_ratio\x18\x03 \x01(\x02:\x04\x31.33\x12\x15\n\x08min_area\x18\x04 \x01(\x02:\x03\x30.1\x12\x13\n\x08max_area\x18\x05 \x01(\x02:\x01\x31\x12\x1b\n\x0eoverlap_thresh\x18\x06 \x01(\x02:\x03\x30.3\x12\x16\n\x0brandom_coef\x18\x07 \x01(\x02:\x01\x30\x12\x1d\n\x15min_padded_size_ratio\x18\x08 \x03(\x02\x12\x1d\n\x15max_padded_size_ratio\x18\t \x03(\x02\x12\x11\n\tpad_color\x18\n \x03(\x02\"O\n\x17RandomCropToAspectRatio\x12\x17\n\x0c\x61spect_ratio\x18\x01 \x01(\x02:\x01\x31\x12\x1b\n\x0eoverlap_thresh\x18\x02 \x01(\x02:\x03\x30.3\"o\n\x12RandomBlackPatches\x12\x1d\n\x11max_black_patches\x18\x01 \x01(\x05:\x02\x31\x30\x12\x18\n\x0bprobability\x18\x02 \x01(\x02:\x03\x30.5\x12 \n\x13size_to_image_ratio\x18\x03 \x01(\x02:\x03\x30.1\"A\n\x12RandomResizeMethod\x12\x15\n\rtarget_height\x18\x01 \x01(\x02\x12\x14\n\x0ctarget_width\x18\x02 \x01(\x02\"\x1e\n\x1cScaleBoxesToPixelCoordinates\"\xc0\x01\n\x0bResizeImage\x12\x12\n\nnew_height\x18\x01 \x01(\x05\x12\x11\n\tnew_width\x18\x02 \x01(\x05\x12\x45\n\x06method\x18\x03 \x01(\x0e\x32+.object_detection.protos.ResizeImage.Method:\x08\x42ILINEAR\"C\n\x06Method\x12\x08\n\x04\x41REA\x10\x01\x12\x0b\n\x07\x42ICUBIC\x10\x02\x12\x0c\n\x08\x42ILINEAR\x10\x03\x12\x14\n\x10NEAREST_NEIGHBOR\x10\x04\"$\n\x13SubtractChannelMean\x12\r\n\x05means\x18\x01 \x03(\x02\"\xb9\x01\n\x16SSDRandomCropOperation\x12\x1a\n\x12min_object_covered\x18\x01 \x01(\x02\x12\x18\n\x10min_aspect_ratio\x18\x02 \x01(\x02\x12\x18\n\x10max_aspect_ratio\x18\x03 \x01(\x02\x12\x10\n\x08min_area\x18\x04 \x01(\x02\x12\x10\n\x08max_area\x18\x05 \x01(\x02\x12\x16\n\x0eoverlap_thresh\x18\x06 \x01(\x02\x12\x13\n\x0brandom_coef\x18\x07 \x01(\x02\"T\n\rSSDRandomCrop\x12\x43\n\noperations\x18\x01 \x03(\x0b\x32/.object_detection.protos.SSDRandomCropOperation\"\xb9\x02\n\x19SSDRandomCropPadOperation\x12\x1a\n\x12min_object_covered\x18\x01 \x01(\x02\x12\x18\n\x10min_aspect_ratio\x18\x02 \x01(\x02\x12\x18\n\x10max_aspect_ratio\x18\x03 \x01(\x02\x12\x10\n\x08min_area\x18\x04 \x01(\x02\x12\x10\n\x08max_area\x18\x05 \x01(\x02\x12\x16\n\x0eoverlap_thresh\x18\x06 \x01(\x02\x12\x13\n\x0brandom_coef\x18\x07 \x01(\x02\x12\x1d\n\x15min_padded_size_ratio\x18\x08 \x03(\x02\x12\x1d\n\x15max_padded_size_ratio\x18\t \x03(\x02\x12\x13\n\x0bpad_color_r\x18\n \x01(\x02\x12\x13\n\x0bpad_color_g\x18\x0b \x01(\x02\x12\x13\n\x0bpad_color_b\x18\x0c \x01(\x02\"Z\n\x10SSDRandomCropPad\x12\x46\n\noperations\x18\x01 \x03(\x0b\x32\x32.object_detection.protos.SSDRandomCropPadOperation\"\x95\x01\n&SSDRandomCropFixedAspectRatioOperation\x12\x1a\n\x12min_object_covered\x18\x01 \x01(\x02\x12\x10\n\x08min_area\x18\x04 \x01(\x02\x12\x10\n\x08max_area\x18\x05 \x01(\x02\x12\x16\n\x0eoverlap_thresh\x18\x06 \x01(\x02\x12\x13\n\x0brandom_coef\x18\x07 \x01(\x02\"\x8d\x01\n\x1dSSDRandomCropFixedAspectRatio\x12S\n\noperations\x18\x01 \x03(\x0b\x32?.object_detection.protos.SSDRandomCropFixedAspectRatioOperation\x12\x17\n\x0c\x61spect_ratio\x18\x02 \x01(\x02:\x01\x31')
+  syntax='proto2',
+  serialized_pb=_b('\n*object_detection/protos/preprocessor.proto\x12\x17object_detection.protos\"\xd8\x14\n\x11PreprocessingStep\x12\x42\n\x0fnormalize_image\x18\x01 \x01(\x0b\x32\'.object_detection.protos.NormalizeImageH\x00\x12O\n\x16random_horizontal_flip\x18\x02 \x01(\x0b\x32-.object_detection.protos.RandomHorizontalFlipH\x00\x12R\n\x18random_pixel_value_scale\x18\x03 \x01(\x0b\x32..object_detection.protos.RandomPixelValueScaleH\x00\x12G\n\x12random_image_scale\x18\x04 \x01(\x0b\x32).object_detection.protos.RandomImageScaleH\x00\x12\x46\n\x12random_rgb_to_gray\x18\x05 \x01(\x0b\x32(.object_detection.protos.RandomRGBtoGrayH\x00\x12S\n\x18random_adjust_brightness\x18\x06 \x01(\x0b\x32/.object_detection.protos.RandomAdjustBrightnessH\x00\x12O\n\x16random_adjust_contrast\x18\x07 \x01(\x0b\x32-.object_detection.protos.RandomAdjustContrastH\x00\x12\x45\n\x11random_adjust_hue\x18\x08 \x01(\x0b\x32(.object_detection.protos.RandomAdjustHueH\x00\x12S\n\x18random_adjust_saturation\x18\t \x01(\x0b\x32/.object_detection.protos.RandomAdjustSaturationH\x00\x12K\n\x14random_distort_color\x18\n \x01(\x0b\x32+.object_detection.protos.RandomDistortColorH\x00\x12I\n\x13random_jitter_boxes\x18\x0b \x01(\x0b\x32*.object_detection.protos.RandomJitterBoxesH\x00\x12\x45\n\x11random_crop_image\x18\x0c \x01(\x0b\x32(.object_detection.protos.RandomCropImageH\x00\x12\x43\n\x10random_pad_image\x18\r \x01(\x0b\x32\'.object_detection.protos.RandomPadImageH\x00\x12L\n\x15random_crop_pad_image\x18\x0e \x01(\x0b\x32+.object_detection.protos.RandomCropPadImageH\x00\x12W\n\x1brandom_crop_to_aspect_ratio\x18\x0f \x01(\x0b\x32\x30.object_detection.protos.RandomCropToAspectRatioH\x00\x12K\n\x14random_black_patches\x18\x10 \x01(\x0b\x32+.object_detection.protos.RandomBlackPatchesH\x00\x12K\n\x14random_resize_method\x18\x11 \x01(\x0b\x32+.object_detection.protos.RandomResizeMethodH\x00\x12\x61\n scale_boxes_to_pixel_coordinates\x18\x12 \x01(\x0b\x32\x35.object_detection.protos.ScaleBoxesToPixelCoordinatesH\x00\x12<\n\x0cresize_image\x18\x13 \x01(\x0b\x32$.object_detection.protos.ResizeImageH\x00\x12M\n\x15subtract_channel_mean\x18\x14 \x01(\x0b\x32,.object_detection.protos.SubtractChannelMeanH\x00\x12\x41\n\x0fssd_random_crop\x18\x15 \x01(\x0b\x32&.object_detection.protos.SSDRandomCropH\x00\x12H\n\x13ssd_random_crop_pad\x18\x16 \x01(\x0b\x32).object_detection.protos.SSDRandomCropPadH\x00\x12\x64\n\"ssd_random_crop_fixed_aspect_ratio\x18\x17 \x01(\x0b\x32\x36.object_detection.protos.SSDRandomCropFixedAspectRatioH\x00\x12k\n&ssd_random_crop_pad_fixed_aspect_ratio\x18\x18 \x01(\x0b\x32\x39.object_detection.protos.SSDRandomCropPadFixedAspectRatioH\x00\x12K\n\x14random_vertical_flip\x18\x19 \x01(\x0b\x32+.object_detection.protos.RandomVerticalFlipH\x00\x12\x46\n\x11random_rotation90\x18\x1a \x01(\x0b\x32).object_detection.protos.RandomRotation90H\x00\x12\x39\n\x0brgb_to_gray\x18\x1b \x01(\x0b\x32\".object_detection.protos.RGBtoGrayH\x00\x12_\n\x1f\x63onvert_class_logits_to_softmax\x18\x1c \x01(\x0b\x32\x34.object_detection.protos.ConvertClassLogitsToSoftmaxH\x00\x12T\n\x19random_absolute_pad_image\x18\x1d \x01(\x0b\x32/.object_detection.protos.RandomAbsolutePadImageH\x00\x12R\n\x18random_self_concat_image\x18\x1e \x01(\x0b\x32..object_detection.protos.RandomSelfConcatImageH\x00\x12\x46\n\x11\x61utoaugment_image\x18\x1f \x01(\x0b\x32).object_detection.protos.AutoAugmentImageH\x00\x12[\n\x1c\x64rop_label_probabilistically\x18  \x01(\x0b\x32\x33.object_detection.protos.DropLabelProbabilisticallyH\x00\x12<\n\x0cremap_labels\x18! \x01(\x0b\x32$.object_detection.protos.RemapLabelsH\x00\x42\x14\n\x12preprocessing_step\"v\n\x0eNormalizeImage\x12\x17\n\x0foriginal_minval\x18\x01 \x01(\x02\x12\x17\n\x0foriginal_maxval\x18\x02 \x01(\x02\x12\x18\n\rtarget_minval\x18\x03 \x01(\x02:\x01\x30\x12\x18\n\rtarget_maxval\x18\x04 \x01(\x02:\x01\x31\"9\n\x14RandomHorizontalFlip\x12!\n\x19keypoint_flip_permutation\x18\x01 \x03(\x05\"7\n\x12RandomVerticalFlip\x12!\n\x19keypoint_flip_permutation\x18\x01 \x03(\x05\"\x12\n\x10RandomRotation90\"A\n\x15RandomPixelValueScale\x12\x13\n\x06minval\x18\x01 \x01(\x02:\x03\x30.9\x12\x13\n\x06maxval\x18\x02 \x01(\x02:\x03\x31.1\"L\n\x10RandomImageScale\x12\x1c\n\x0fmin_scale_ratio\x18\x01 \x01(\x02:\x03\x30.5\x12\x1a\n\x0fmax_scale_ratio\x18\x02 \x01(\x02:\x01\x32\"+\n\x0fRandomRGBtoGray\x12\x18\n\x0bprobability\x18\x01 \x01(\x02:\x03\x30.1\"0\n\x16RandomAdjustBrightness\x12\x16\n\tmax_delta\x18\x01 \x01(\x02:\x03\x30.2\"G\n\x14RandomAdjustContrast\x12\x16\n\tmin_delta\x18\x01 \x01(\x02:\x03\x30.8\x12\x17\n\tmax_delta\x18\x02 \x01(\x02:\x04\x31.25\"*\n\x0fRandomAdjustHue\x12\x17\n\tmax_delta\x18\x01 \x01(\x02:\x04\x30.02\"I\n\x16RandomAdjustSaturation\x12\x16\n\tmin_delta\x18\x01 \x01(\x02:\x03\x30.8\x12\x17\n\tmax_delta\x18\x02 \x01(\x02:\x04\x31.25\",\n\x12RandomDistortColor\x12\x16\n\x0e\x63olor_ordering\x18\x01 \x01(\x05\"(\n\x11RandomJitterBoxes\x12\x13\n\x05ratio\x18\x01 \x01(\x02:\x04\x30.05\"\xeb\x01\n\x0fRandomCropImage\x12\x1d\n\x12min_object_covered\x18\x01 \x01(\x02:\x01\x31\x12\x1e\n\x10min_aspect_ratio\x18\x02 \x01(\x02:\x04\x30.75\x12\x1e\n\x10max_aspect_ratio\x18\x03 \x01(\x02:\x04\x31.33\x12\x15\n\x08min_area\x18\x04 \x01(\x02:\x03\x30.1\x12\x13\n\x08max_area\x18\x05 \x01(\x02:\x01\x31\x12\x1b\n\x0eoverlap_thresh\x18\x06 \x01(\x02:\x03\x30.3\x12\x18\n\nclip_boxes\x18\x08 \x01(\x08:\x04true\x12\x16\n\x0brandom_coef\x18\x07 \x01(\x02:\x01\x30\"\x89\x01\n\x0eRandomPadImage\x12\x18\n\x10min_image_height\x18\x01 \x01(\x05\x12\x17\n\x0fmin_image_width\x18\x02 \x01(\x05\x12\x18\n\x10max_image_height\x18\x03 \x01(\x05\x12\x17\n\x0fmax_image_width\x18\x04 \x01(\x05\x12\x11\n\tpad_color\x18\x05 \x03(\x02\"b\n\x16RandomAbsolutePadImage\x12\x1a\n\x12max_height_padding\x18\x01 \x01(\x05\x12\x19\n\x11max_width_padding\x18\x02 \x01(\x05\x12\x11\n\tpad_color\x18\x03 \x03(\x02\"\xbf\x02\n\x12RandomCropPadImage\x12\x1d\n\x12min_object_covered\x18\x01 \x01(\x02:\x01\x31\x12\x1e\n\x10min_aspect_ratio\x18\x02 \x01(\x02:\x04\x30.75\x12\x1e\n\x10max_aspect_ratio\x18\x03 \x01(\x02:\x04\x31.33\x12\x15\n\x08min_area\x18\x04 \x01(\x02:\x03\x30.1\x12\x13\n\x08max_area\x18\x05 \x01(\x02:\x01\x31\x12\x1b\n\x0eoverlap_thresh\x18\x06 \x01(\x02:\x03\x30.3\x12\x18\n\nclip_boxes\x18\x0b \x01(\x08:\x04true\x12\x16\n\x0brandom_coef\x18\x07 \x01(\x02:\x01\x30\x12\x1d\n\x15min_padded_size_ratio\x18\x08 \x03(\x02\x12\x1d\n\x15max_padded_size_ratio\x18\t \x03(\x02\x12\x11\n\tpad_color\x18\n \x03(\x02\"i\n\x17RandomCropToAspectRatio\x12\x17\n\x0c\x61spect_ratio\x18\x01 \x01(\x02:\x01\x31\x12\x1b\n\x0eoverlap_thresh\x18\x02 \x01(\x02:\x03\x30.3\x12\x18\n\nclip_boxes\x18\x03 \x01(\x08:\x04true\"o\n\x12RandomBlackPatches\x12\x1d\n\x11max_black_patches\x18\x01 \x01(\x05:\x02\x31\x30\x12\x18\n\x0bprobability\x18\x02 \x01(\x02:\x03\x30.5\x12 \n\x13size_to_image_ratio\x18\x03 \x01(\x02:\x03\x30.1\"A\n\x12RandomResizeMethod\x12\x15\n\rtarget_height\x18\x01 \x01(\x05\x12\x14\n\x0ctarget_width\x18\x02 \x01(\x05\"\x0b\n\tRGBtoGray\"\x1e\n\x1cScaleBoxesToPixelCoordinates\"\xc0\x01\n\x0bResizeImage\x12\x12\n\nnew_height\x18\x01 \x01(\x05\x12\x11\n\tnew_width\x18\x02 \x01(\x05\x12\x45\n\x06method\x18\x03 \x01(\x0e\x32+.object_detection.protos.ResizeImage.Method:\x08\x42ILINEAR\"C\n\x06Method\x12\x08\n\x04\x41REA\x10\x01\x12\x0b\n\x07\x42ICUBIC\x10\x02\x12\x0c\n\x08\x42ILINEAR\x10\x03\x12\x14\n\x10NEAREST_NEIGHBOR\x10\x04\"$\n\x13SubtractChannelMean\x12\r\n\x05means\x18\x01 \x03(\x02\"\xd3\x01\n\x16SSDRandomCropOperation\x12\x1a\n\x12min_object_covered\x18\x01 \x01(\x02\x12\x18\n\x10min_aspect_ratio\x18\x02 \x01(\x02\x12\x18\n\x10max_aspect_ratio\x18\x03 \x01(\x02\x12\x10\n\x08min_area\x18\x04 \x01(\x02\x12\x10\n\x08max_area\x18\x05 \x01(\x02\x12\x16\n\x0eoverlap_thresh\x18\x06 \x01(\x02\x12\x18\n\nclip_boxes\x18\x08 \x01(\x08:\x04true\x12\x13\n\x0brandom_coef\x18\x07 \x01(\x02\"T\n\rSSDRandomCrop\x12\x43\n\noperations\x18\x01 \x03(\x0b\x32/.object_detection.protos.SSDRandomCropOperation\"\xd3\x02\n\x19SSDRandomCropPadOperation\x12\x1a\n\x12min_object_covered\x18\x01 \x01(\x02\x12\x18\n\x10min_aspect_ratio\x18\x02 \x01(\x02\x12\x18\n\x10max_aspect_ratio\x18\x03 \x01(\x02\x12\x10\n\x08min_area\x18\x04 \x01(\x02\x12\x10\n\x08max_area\x18\x05 \x01(\x02\x12\x16\n\x0eoverlap_thresh\x18\x06 \x01(\x02\x12\x18\n\nclip_boxes\x18\r \x01(\x08:\x04true\x12\x13\n\x0brandom_coef\x18\x07 \x01(\x02\x12\x1d\n\x15min_padded_size_ratio\x18\x08 \x03(\x02\x12\x1d\n\x15max_padded_size_ratio\x18\t \x03(\x02\x12\x13\n\x0bpad_color_r\x18\n \x01(\x02\x12\x13\n\x0bpad_color_g\x18\x0b \x01(\x02\x12\x13\n\x0bpad_color_b\x18\x0c \x01(\x02\"Z\n\x10SSDRandomCropPad\x12\x46\n\noperations\x18\x01 \x03(\x0b\x32\x32.object_detection.protos.SSDRandomCropPadOperation\"\xaf\x01\n&SSDRandomCropFixedAspectRatioOperation\x12\x1a\n\x12min_object_covered\x18\x01 \x01(\x02\x12\x10\n\x08min_area\x18\x04 \x01(\x02\x12\x10\n\x08max_area\x18\x05 \x01(\x02\x12\x16\n\x0eoverlap_thresh\x18\x06 \x01(\x02\x12\x18\n\nclip_boxes\x18\x08 \x01(\x08:\x04true\x12\x13\n\x0brandom_coef\x18\x07 \x01(\x02\"\x8d\x01\n\x1dSSDRandomCropFixedAspectRatio\x12S\n\noperations\x18\x01 \x03(\x0b\x32?.object_detection.protos.SSDRandomCropFixedAspectRatioOperation\x12\x17\n\x0c\x61spect_ratio\x18\x02 \x01(\x02:\x01\x31\"\xe6\x01\n)SSDRandomCropPadFixedAspectRatioOperation\x12\x1a\n\x12min_object_covered\x18\x01 \x01(\x02\x12\x18\n\x10min_aspect_ratio\x18\x02 \x01(\x02\x12\x18\n\x10max_aspect_ratio\x18\x03 \x01(\x02\x12\x10\n\x08min_area\x18\x04 \x01(\x02\x12\x10\n\x08max_area\x18\x05 \x01(\x02\x12\x16\n\x0eoverlap_thresh\x18\x06 \x01(\x02\x12\x18\n\nclip_boxes\x18\x08 \x01(\x08:\x04true\x12\x13\n\x0brandom_coef\x18\x07 \x01(\x02\"\xd1\x01\n SSDRandomCropPadFixedAspectRatio\x12V\n\noperations\x18\x01 \x03(\x0b\x32\x42.object_detection.protos.SSDRandomCropPadFixedAspectRatioOperation\x12\x17\n\x0c\x61spect_ratio\x18\x02 \x01(\x02:\x01\x31\x12\x1d\n\x15min_padded_size_ratio\x18\x03 \x03(\x02\x12\x1d\n\x15max_padded_size_ratio\x18\x04 \x03(\x02\"5\n\x1b\x43onvertClassLogitsToSoftmax\x12\x16\n\x0btemperature\x18\x01 \x01(\x02:\x01\x31\"m\n\x15RandomSelfConcatImage\x12(\n\x1b\x63oncat_vertical_probability\x18\x01 \x01(\x02:\x03\x30.1\x12*\n\x1d\x63oncat_horizontal_probability\x18\x02 \x01(\x02:\x03\x30.1\"+\n\x10\x41utoAugmentImage\x12\x17\n\x0bpolicy_name\x18\x01 \x01(\t:\x02v0\"H\n\x1a\x44ropLabelProbabilistically\x12\r\n\x05label\x18\x01 \x01(\x05\x12\x1b\n\x10\x64rop_probability\x18\x02 \x01(\x02:\x01\x31\"9\n\x0bRemapLabels\x12\x17\n\x0foriginal_labels\x18\x01 \x03(\x05\x12\x11\n\tnew_label\x18\x02 \x01(\x05')
 )
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
 
@@ -49,8 +49,8 @@ _RESIZEIMAGE_METHOD = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=3642,
-  serialized_end=3709,
+  serialized_start=4756,
+  serialized_end=4823,
 )
 _sym_db.RegisterEnumDescriptor(_RESIZEIMAGE_METHOD)
 
@@ -223,6 +223,76 @@ _PREPROCESSINGSTEP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='ssd_random_crop_pad_fixed_aspect_ratio', full_name='object_detection.protos.PreprocessingStep.ssd_random_crop_pad_fixed_aspect_ratio', index=23,
+      number=24, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='random_vertical_flip', full_name='object_detection.protos.PreprocessingStep.random_vertical_flip', index=24,
+      number=25, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='random_rotation90', full_name='object_detection.protos.PreprocessingStep.random_rotation90', index=25,
+      number=26, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='rgb_to_gray', full_name='object_detection.protos.PreprocessingStep.rgb_to_gray', index=26,
+      number=27, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='convert_class_logits_to_softmax', full_name='object_detection.protos.PreprocessingStep.convert_class_logits_to_softmax', index=27,
+      number=28, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='random_absolute_pad_image', full_name='object_detection.protos.PreprocessingStep.random_absolute_pad_image', index=28,
+      number=29, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='random_self_concat_image', full_name='object_detection.protos.PreprocessingStep.random_self_concat_image', index=29,
+      number=30, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='autoaugment_image', full_name='object_detection.protos.PreprocessingStep.autoaugment_image', index=30,
+      number=31, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='drop_label_probabilistically', full_name='object_detection.protos.PreprocessingStep.drop_label_probabilistically', index=31,
+      number=32, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='remap_labels', full_name='object_detection.protos.PreprocessingStep.remap_labels', index=32,
+      number=33, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -231,6 +301,7 @@ _PREPROCESSINGSTEP = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
     _descriptor.OneofDescriptor(
@@ -238,7 +309,7 @@ _PREPROCESSINGSTEP = _descriptor.Descriptor(
       index=0, containing_type=None, fields=[]),
   ],
   serialized_start=72,
-  serialized_end=1909,
+  serialized_end=2720,
 )
 
 
@@ -252,28 +323,28 @@ _NORMALIZEIMAGE = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='original_minval', full_name='object_detection.protos.NormalizeImage.original_minval', index=0,
       number=1, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='original_maxval', full_name='object_detection.protos.NormalizeImage.original_maxval', index=1,
       number=2, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='target_minval', full_name='object_detection.protos.NormalizeImage.target_minval', index=2,
       number=3, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=0,
+      has_default_value=True, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='target_maxval', full_name='object_detection.protos.NormalizeImage.target_maxval', index=3,
       number=4, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=1,
+      has_default_value=True, default_value=float(1),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -285,17 +356,80 @@ _NORMALIZEIMAGE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1911,
-  serialized_end=2029,
+  serialized_start=2722,
+  serialized_end=2840,
 )
 
 
 _RANDOMHORIZONTALFLIP = _descriptor.Descriptor(
   name='RandomHorizontalFlip',
   full_name='object_detection.protos.RandomHorizontalFlip',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keypoint_flip_permutation', full_name='object_detection.protos.RandomHorizontalFlip.keypoint_flip_permutation', index=0,
+      number=1, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2842,
+  serialized_end=2899,
+)
+
+
+_RANDOMVERTICALFLIP = _descriptor.Descriptor(
+  name='RandomVerticalFlip',
+  full_name='object_detection.protos.RandomVerticalFlip',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keypoint_flip_permutation', full_name='object_detection.protos.RandomVerticalFlip.keypoint_flip_permutation', index=0,
+      number=1, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2901,
+  serialized_end=2956,
+)
+
+
+_RANDOMROTATION90 = _descriptor.Descriptor(
+  name='RandomRotation90',
+  full_name='object_detection.protos.RandomRotation90',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -308,11 +442,12 @@ _RANDOMHORIZONTALFLIP = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2031,
-  serialized_end=2053,
+  serialized_start=2958,
+  serialized_end=2976,
 )
 
 
@@ -326,14 +461,14 @@ _RANDOMPIXELVALUESCALE = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='minval', full_name='object_detection.protos.RandomPixelValueScale.minval', index=0,
       number=1, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=0.9,
+      has_default_value=True, default_value=float(0.9),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='maxval', full_name='object_detection.protos.RandomPixelValueScale.maxval', index=1,
       number=2, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=1.1,
+      has_default_value=True, default_value=float(1.1),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -345,11 +480,12 @@ _RANDOMPIXELVALUESCALE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2055,
-  serialized_end=2120,
+  serialized_start=2978,
+  serialized_end=3043,
 )
 
 
@@ -363,14 +499,14 @@ _RANDOMIMAGESCALE = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='min_scale_ratio', full_name='object_detection.protos.RandomImageScale.min_scale_ratio', index=0,
       number=1, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=0.5,
+      has_default_value=True, default_value=float(0.5),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='max_scale_ratio', full_name='object_detection.protos.RandomImageScale.max_scale_ratio', index=1,
       number=2, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=2,
+      has_default_value=True, default_value=float(2),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -382,11 +518,12 @@ _RANDOMIMAGESCALE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2122,
-  serialized_end=2198,
+  serialized_start=3045,
+  serialized_end=3121,
 )
 
 
@@ -400,7 +537,7 @@ _RANDOMRGBTOGRAY = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='probability', full_name='object_detection.protos.RandomRGBtoGray.probability', index=0,
       number=1, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=0.1,
+      has_default_value=True, default_value=float(0.1),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -412,11 +549,12 @@ _RANDOMRGBTOGRAY = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2200,
-  serialized_end=2243,
+  serialized_start=3123,
+  serialized_end=3166,
 )
 
 
@@ -430,7 +568,7 @@ _RANDOMADJUSTBRIGHTNESS = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='max_delta', full_name='object_detection.protos.RandomAdjustBrightness.max_delta', index=0,
       number=1, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=0.2,
+      has_default_value=True, default_value=float(0.2),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -442,11 +580,12 @@ _RANDOMADJUSTBRIGHTNESS = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2245,
-  serialized_end=2293,
+  serialized_start=3168,
+  serialized_end=3216,
 )
 
 
@@ -460,14 +599,14 @@ _RANDOMADJUSTCONTRAST = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='min_delta', full_name='object_detection.protos.RandomAdjustContrast.min_delta', index=0,
       number=1, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=0.8,
+      has_default_value=True, default_value=float(0.8),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='max_delta', full_name='object_detection.protos.RandomAdjustContrast.max_delta', index=1,
       number=2, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=1.25,
+      has_default_value=True, default_value=float(1.25),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -479,11 +618,12 @@ _RANDOMADJUSTCONTRAST = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2295,
-  serialized_end=2366,
+  serialized_start=3218,
+  serialized_end=3289,
 )
 
 
@@ -497,7 +637,7 @@ _RANDOMADJUSTHUE = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='max_delta', full_name='object_detection.protos.RandomAdjustHue.max_delta', index=0,
       number=1, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=0.02,
+      has_default_value=True, default_value=float(0.02),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -509,11 +649,12 @@ _RANDOMADJUSTHUE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2368,
-  serialized_end=2410,
+  serialized_start=3291,
+  serialized_end=3333,
 )
 
 
@@ -527,14 +668,14 @@ _RANDOMADJUSTSATURATION = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='min_delta', full_name='object_detection.protos.RandomAdjustSaturation.min_delta', index=0,
       number=1, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=0.8,
+      has_default_value=True, default_value=float(0.8),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='max_delta', full_name='object_detection.protos.RandomAdjustSaturation.max_delta', index=1,
       number=2, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=1.25,
+      has_default_value=True, default_value=float(1.25),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -546,11 +687,12 @@ _RANDOMADJUSTSATURATION = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2412,
-  serialized_end=2485,
+  serialized_start=3335,
+  serialized_end=3408,
 )
 
 
@@ -576,11 +718,12 @@ _RANDOMDISTORTCOLOR = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2487,
-  serialized_end=2531,
+  serialized_start=3410,
+  serialized_end=3454,
 )
 
 
@@ -594,7 +737,7 @@ _RANDOMJITTERBOXES = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='ratio', full_name='object_detection.protos.RandomJitterBoxes.ratio', index=0,
       number=1, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=0.05,
+      has_default_value=True, default_value=float(0.05),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -606,11 +749,12 @@ _RANDOMJITTERBOXES = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2533,
-  serialized_end=2573,
+  serialized_start=3456,
+  serialized_end=3496,
 )
 
 
@@ -624,49 +768,56 @@ _RANDOMCROPIMAGE = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='min_object_covered', full_name='object_detection.protos.RandomCropImage.min_object_covered', index=0,
       number=1, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=1,
+      has_default_value=True, default_value=float(1),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='min_aspect_ratio', full_name='object_detection.protos.RandomCropImage.min_aspect_ratio', index=1,
       number=2, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=0.75,
+      has_default_value=True, default_value=float(0.75),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='max_aspect_ratio', full_name='object_detection.protos.RandomCropImage.max_aspect_ratio', index=2,
       number=3, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=1.33,
+      has_default_value=True, default_value=float(1.33),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='min_area', full_name='object_detection.protos.RandomCropImage.min_area', index=3,
       number=4, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=0.1,
+      has_default_value=True, default_value=float(0.1),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='max_area', full_name='object_detection.protos.RandomCropImage.max_area', index=4,
       number=5, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=1,
+      has_default_value=True, default_value=float(1),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='overlap_thresh', full_name='object_detection.protos.RandomCropImage.overlap_thresh', index=5,
       number=6, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=0.3,
+      has_default_value=True, default_value=float(0.3),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='random_coef', full_name='object_detection.protos.RandomCropImage.random_coef', index=6,
+      name='clip_boxes', full_name='object_detection.protos.RandomCropImage.clip_boxes', index=6,
+      number=8, type=8, cpp_type=7, label=1,
+      has_default_value=True, default_value=True,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='random_coef', full_name='object_detection.protos.RandomCropImage.random_coef', index=7,
       number=7, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=0,
+      has_default_value=True, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -678,11 +829,12 @@ _RANDOMCROPIMAGE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2576,
-  serialized_end=2785,
+  serialized_start=3499,
+  serialized_end=3734,
 )
 
 
@@ -695,28 +847,28 @@ _RANDOMPADIMAGE = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='min_image_height', full_name='object_detection.protos.RandomPadImage.min_image_height', index=0,
-      number=1, type=2, cpp_type=6, label=1,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='min_image_width', full_name='object_detection.protos.RandomPadImage.min_image_width', index=1,
-      number=2, type=2, cpp_type=6, label=1,
+      number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='max_image_height', full_name='object_detection.protos.RandomPadImage.max_image_height', index=2,
-      number=3, type=2, cpp_type=6, label=1,
+      number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='max_image_width', full_name='object_detection.protos.RandomPadImage.max_image_width', index=3,
-      number=4, type=2, cpp_type=6, label=1,
+      number=4, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -736,11 +888,57 @@ _RANDOMPADIMAGE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2788,
-  serialized_end=2925,
+  serialized_start=3737,
+  serialized_end=3874,
+)
+
+
+_RANDOMABSOLUTEPADIMAGE = _descriptor.Descriptor(
+  name='RandomAbsolutePadImage',
+  full_name='object_detection.protos.RandomAbsolutePadImage',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='max_height_padding', full_name='object_detection.protos.RandomAbsolutePadImage.max_height_padding', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='max_width_padding', full_name='object_detection.protos.RandomAbsolutePadImage.max_width_padding', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='pad_color', full_name='object_detection.protos.RandomAbsolutePadImage.pad_color', index=2,
+      number=3, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3876,
+  serialized_end=3974,
 )
 
 
@@ -754,68 +952,75 @@ _RANDOMCROPPADIMAGE = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='min_object_covered', full_name='object_detection.protos.RandomCropPadImage.min_object_covered', index=0,
       number=1, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=1,
+      has_default_value=True, default_value=float(1),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='min_aspect_ratio', full_name='object_detection.protos.RandomCropPadImage.min_aspect_ratio', index=1,
       number=2, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=0.75,
+      has_default_value=True, default_value=float(0.75),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='max_aspect_ratio', full_name='object_detection.protos.RandomCropPadImage.max_aspect_ratio', index=2,
       number=3, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=1.33,
+      has_default_value=True, default_value=float(1.33),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='min_area', full_name='object_detection.protos.RandomCropPadImage.min_area', index=3,
       number=4, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=0.1,
+      has_default_value=True, default_value=float(0.1),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='max_area', full_name='object_detection.protos.RandomCropPadImage.max_area', index=4,
       number=5, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=1,
+      has_default_value=True, default_value=float(1),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='overlap_thresh', full_name='object_detection.protos.RandomCropPadImage.overlap_thresh', index=5,
       number=6, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=0.3,
+      has_default_value=True, default_value=float(0.3),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='random_coef', full_name='object_detection.protos.RandomCropPadImage.random_coef', index=6,
+      name='clip_boxes', full_name='object_detection.protos.RandomCropPadImage.clip_boxes', index=6,
+      number=11, type=8, cpp_type=7, label=1,
+      has_default_value=True, default_value=True,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='random_coef', full_name='object_detection.protos.RandomCropPadImage.random_coef', index=7,
       number=7, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=0,
+      has_default_value=True, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='min_padded_size_ratio', full_name='object_detection.protos.RandomCropPadImage.min_padded_size_ratio', index=7,
+      name='min_padded_size_ratio', full_name='object_detection.protos.RandomCropPadImage.min_padded_size_ratio', index=8,
       number=8, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='max_padded_size_ratio', full_name='object_detection.protos.RandomCropPadImage.max_padded_size_ratio', index=8,
+      name='max_padded_size_ratio', full_name='object_detection.protos.RandomCropPadImage.max_padded_size_ratio', index=9,
       number=9, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='pad_color', full_name='object_detection.protos.RandomCropPadImage.pad_color', index=9,
+      name='pad_color', full_name='object_detection.protos.RandomCropPadImage.pad_color', index=10,
       number=10, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -829,11 +1034,12 @@ _RANDOMCROPPADIMAGE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2928,
-  serialized_end=3221,
+  serialized_start=3977,
+  serialized_end=4296,
 )
 
 
@@ -847,14 +1053,21 @@ _RANDOMCROPTOASPECTRATIO = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='aspect_ratio', full_name='object_detection.protos.RandomCropToAspectRatio.aspect_ratio', index=0,
       number=1, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=1,
+      has_default_value=True, default_value=float(1),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='overlap_thresh', full_name='object_detection.protos.RandomCropToAspectRatio.overlap_thresh', index=1,
       number=2, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=0.3,
+      has_default_value=True, default_value=float(0.3),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='clip_boxes', full_name='object_detection.protos.RandomCropToAspectRatio.clip_boxes', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=True, default_value=True,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -866,11 +1079,12 @@ _RANDOMCROPTOASPECTRATIO = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3223,
-  serialized_end=3302,
+  serialized_start=4298,
+  serialized_end=4403,
 )
 
 
@@ -891,14 +1105,14 @@ _RANDOMBLACKPATCHES = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='probability', full_name='object_detection.protos.RandomBlackPatches.probability', index=1,
       number=2, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=0.5,
+      has_default_value=True, default_value=float(0.5),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='size_to_image_ratio', full_name='object_detection.protos.RandomBlackPatches.size_to_image_ratio', index=2,
       number=3, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=0.1,
+      has_default_value=True, default_value=float(0.1),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -910,11 +1124,12 @@ _RANDOMBLACKPATCHES = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3304,
-  serialized_end=3415,
+  serialized_start=4405,
+  serialized_end=4516,
 )
 
 
@@ -927,14 +1142,14 @@ _RANDOMRESIZEMETHOD = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='target_height', full_name='object_detection.protos.RandomResizeMethod.target_height', index=0,
-      number=1, type=2, cpp_type=6, label=1,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='target_width', full_name='object_detection.protos.RandomResizeMethod.target_width', index=1,
-      number=2, type=2, cpp_type=6, label=1,
+      number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -947,11 +1162,36 @@ _RANDOMRESIZEMETHOD = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3417,
-  serialized_end=3482,
+  serialized_start=4518,
+  serialized_end=4583,
+)
+
+
+_RGBTOGRAY = _descriptor.Descriptor(
+  name='RGBtoGray',
+  full_name='object_detection.protos.RGBtoGray',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4585,
+  serialized_end=4596,
 )
 
 
@@ -970,11 +1210,12 @@ _SCALEBOXESTOPIXELCOORDINATES = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3484,
-  serialized_end=3514,
+  serialized_start=4598,
+  serialized_end=4628,
 )
 
 
@@ -1015,11 +1256,12 @@ _RESIZEIMAGE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3517,
-  serialized_end=3709,
+  serialized_start=4631,
+  serialized_end=4823,
 )
 
 
@@ -1045,11 +1287,12 @@ _SUBTRACTCHANNELMEAN = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3711,
-  serialized_end=3747,
+  serialized_start=4825,
+  serialized_end=4861,
 )
 
 
@@ -1063,49 +1306,56 @@ _SSDRANDOMCROPOPERATION = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='min_object_covered', full_name='object_detection.protos.SSDRandomCropOperation.min_object_covered', index=0,
       number=1, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='min_aspect_ratio', full_name='object_detection.protos.SSDRandomCropOperation.min_aspect_ratio', index=1,
       number=2, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='max_aspect_ratio', full_name='object_detection.protos.SSDRandomCropOperation.max_aspect_ratio', index=2,
       number=3, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='min_area', full_name='object_detection.protos.SSDRandomCropOperation.min_area', index=3,
       number=4, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='max_area', full_name='object_detection.protos.SSDRandomCropOperation.max_area', index=4,
       number=5, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='overlap_thresh', full_name='object_detection.protos.SSDRandomCropOperation.overlap_thresh', index=5,
       number=6, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='random_coef', full_name='object_detection.protos.SSDRandomCropOperation.random_coef', index=6,
+      name='clip_boxes', full_name='object_detection.protos.SSDRandomCropOperation.clip_boxes', index=6,
+      number=8, type=8, cpp_type=7, label=1,
+      has_default_value=True, default_value=True,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='random_coef', full_name='object_detection.protos.SSDRandomCropOperation.random_coef', index=7,
       number=7, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -1117,11 +1367,12 @@ _SSDRANDOMCROPOPERATION = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3750,
-  serialized_end=3935,
+  serialized_start=4864,
+  serialized_end=5075,
 )
 
 
@@ -1147,11 +1398,12 @@ _SSDRANDOMCROP = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3937,
-  serialized_end=4021,
+  serialized_start=5077,
+  serialized_end=5161,
 )
 
 
@@ -1165,84 +1417,91 @@ _SSDRANDOMCROPPADOPERATION = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='min_object_covered', full_name='object_detection.protos.SSDRandomCropPadOperation.min_object_covered', index=0,
       number=1, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='min_aspect_ratio', full_name='object_detection.protos.SSDRandomCropPadOperation.min_aspect_ratio', index=1,
       number=2, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='max_aspect_ratio', full_name='object_detection.protos.SSDRandomCropPadOperation.max_aspect_ratio', index=2,
       number=3, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='min_area', full_name='object_detection.protos.SSDRandomCropPadOperation.min_area', index=3,
       number=4, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='max_area', full_name='object_detection.protos.SSDRandomCropPadOperation.max_area', index=4,
       number=5, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='overlap_thresh', full_name='object_detection.protos.SSDRandomCropPadOperation.overlap_thresh', index=5,
       number=6, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='random_coef', full_name='object_detection.protos.SSDRandomCropPadOperation.random_coef', index=6,
+      name='clip_boxes', full_name='object_detection.protos.SSDRandomCropPadOperation.clip_boxes', index=6,
+      number=13, type=8, cpp_type=7, label=1,
+      has_default_value=True, default_value=True,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='random_coef', full_name='object_detection.protos.SSDRandomCropPadOperation.random_coef', index=7,
       number=7, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='min_padded_size_ratio', full_name='object_detection.protos.SSDRandomCropPadOperation.min_padded_size_ratio', index=7,
+      name='min_padded_size_ratio', full_name='object_detection.protos.SSDRandomCropPadOperation.min_padded_size_ratio', index=8,
       number=8, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='max_padded_size_ratio', full_name='object_detection.protos.SSDRandomCropPadOperation.max_padded_size_ratio', index=8,
+      name='max_padded_size_ratio', full_name='object_detection.protos.SSDRandomCropPadOperation.max_padded_size_ratio', index=9,
       number=9, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='pad_color_r', full_name='object_detection.protos.SSDRandomCropPadOperation.pad_color_r', index=9,
+      name='pad_color_r', full_name='object_detection.protos.SSDRandomCropPadOperation.pad_color_r', index=10,
       number=10, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='pad_color_g', full_name='object_detection.protos.SSDRandomCropPadOperation.pad_color_g', index=10,
+      name='pad_color_g', full_name='object_detection.protos.SSDRandomCropPadOperation.pad_color_g', index=11,
       number=11, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='pad_color_b', full_name='object_detection.protos.SSDRandomCropPadOperation.pad_color_b', index=11,
+      name='pad_color_b', full_name='object_detection.protos.SSDRandomCropPadOperation.pad_color_b', index=12,
       number=12, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -1254,11 +1513,12 @@ _SSDRANDOMCROPPADOPERATION = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4024,
-  serialized_end=4337,
+  serialized_start=5164,
+  serialized_end=5503,
 )
 
 
@@ -1284,11 +1544,12 @@ _SSDRANDOMCROPPAD = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4339,
-  serialized_end=4429,
+  serialized_start=5505,
+  serialized_end=5595,
 )
 
 
@@ -1302,35 +1563,42 @@ _SSDRANDOMCROPFIXEDASPECTRATIOOPERATION = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='min_object_covered', full_name='object_detection.protos.SSDRandomCropFixedAspectRatioOperation.min_object_covered', index=0,
       number=1, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='min_area', full_name='object_detection.protos.SSDRandomCropFixedAspectRatioOperation.min_area', index=1,
       number=4, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='max_area', full_name='object_detection.protos.SSDRandomCropFixedAspectRatioOperation.max_area', index=2,
       number=5, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='overlap_thresh', full_name='object_detection.protos.SSDRandomCropFixedAspectRatioOperation.overlap_thresh', index=3,
       number=6, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='random_coef', full_name='object_detection.protos.SSDRandomCropFixedAspectRatioOperation.random_coef', index=4,
+      name='clip_boxes', full_name='object_detection.protos.SSDRandomCropFixedAspectRatioOperation.clip_boxes', index=4,
+      number=8, type=8, cpp_type=7, label=1,
+      has_default_value=True, default_value=True,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='random_coef', full_name='object_detection.protos.SSDRandomCropFixedAspectRatioOperation.random_coef', index=5,
       number=7, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -1342,11 +1610,12 @@ _SSDRANDOMCROPFIXEDASPECTRATIOOPERATION = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4432,
-  serialized_end=4581,
+  serialized_start=5598,
+  serialized_end=5773,
 )
 
 
@@ -1367,7 +1636,7 @@ _SSDRANDOMCROPFIXEDASPECTRATIO = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='aspect_ratio', full_name='object_detection.protos.SSDRandomCropFixedAspectRatio.aspect_ratio', index=1,
       number=2, type=2, cpp_type=6, label=1,
-      has_default_value=True, default_value=1,
+      has_default_value=True, default_value=float(1),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -1379,11 +1648,320 @@ _SSDRANDOMCROPFIXEDASPECTRATIO = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4584,
-  serialized_end=4725,
+  serialized_start=5776,
+  serialized_end=5917,
+)
+
+
+_SSDRANDOMCROPPADFIXEDASPECTRATIOOPERATION = _descriptor.Descriptor(
+  name='SSDRandomCropPadFixedAspectRatioOperation',
+  full_name='object_detection.protos.SSDRandomCropPadFixedAspectRatioOperation',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='min_object_covered', full_name='object_detection.protos.SSDRandomCropPadFixedAspectRatioOperation.min_object_covered', index=0,
+      number=1, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='min_aspect_ratio', full_name='object_detection.protos.SSDRandomCropPadFixedAspectRatioOperation.min_aspect_ratio', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='max_aspect_ratio', full_name='object_detection.protos.SSDRandomCropPadFixedAspectRatioOperation.max_aspect_ratio', index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='min_area', full_name='object_detection.protos.SSDRandomCropPadFixedAspectRatioOperation.min_area', index=3,
+      number=4, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='max_area', full_name='object_detection.protos.SSDRandomCropPadFixedAspectRatioOperation.max_area', index=4,
+      number=5, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='overlap_thresh', full_name='object_detection.protos.SSDRandomCropPadFixedAspectRatioOperation.overlap_thresh', index=5,
+      number=6, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='clip_boxes', full_name='object_detection.protos.SSDRandomCropPadFixedAspectRatioOperation.clip_boxes', index=6,
+      number=8, type=8, cpp_type=7, label=1,
+      has_default_value=True, default_value=True,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='random_coef', full_name='object_detection.protos.SSDRandomCropPadFixedAspectRatioOperation.random_coef', index=7,
+      number=7, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5920,
+  serialized_end=6150,
+)
+
+
+_SSDRANDOMCROPPADFIXEDASPECTRATIO = _descriptor.Descriptor(
+  name='SSDRandomCropPadFixedAspectRatio',
+  full_name='object_detection.protos.SSDRandomCropPadFixedAspectRatio',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='operations', full_name='object_detection.protos.SSDRandomCropPadFixedAspectRatio.operations', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='aspect_ratio', full_name='object_detection.protos.SSDRandomCropPadFixedAspectRatio.aspect_ratio', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=True, default_value=float(1),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='min_padded_size_ratio', full_name='object_detection.protos.SSDRandomCropPadFixedAspectRatio.min_padded_size_ratio', index=2,
+      number=3, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='max_padded_size_ratio', full_name='object_detection.protos.SSDRandomCropPadFixedAspectRatio.max_padded_size_ratio', index=3,
+      number=4, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6153,
+  serialized_end=6362,
+)
+
+
+_CONVERTCLASSLOGITSTOSOFTMAX = _descriptor.Descriptor(
+  name='ConvertClassLogitsToSoftmax',
+  full_name='object_detection.protos.ConvertClassLogitsToSoftmax',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='temperature', full_name='object_detection.protos.ConvertClassLogitsToSoftmax.temperature', index=0,
+      number=1, type=2, cpp_type=6, label=1,
+      has_default_value=True, default_value=float(1),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6364,
+  serialized_end=6417,
+)
+
+
+_RANDOMSELFCONCATIMAGE = _descriptor.Descriptor(
+  name='RandomSelfConcatImage',
+  full_name='object_detection.protos.RandomSelfConcatImage',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='concat_vertical_probability', full_name='object_detection.protos.RandomSelfConcatImage.concat_vertical_probability', index=0,
+      number=1, type=2, cpp_type=6, label=1,
+      has_default_value=True, default_value=float(0.1),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='concat_horizontal_probability', full_name='object_detection.protos.RandomSelfConcatImage.concat_horizontal_probability', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=True, default_value=float(0.1),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6419,
+  serialized_end=6528,
+)
+
+
+_AUTOAUGMENTIMAGE = _descriptor.Descriptor(
+  name='AutoAugmentImage',
+  full_name='object_detection.protos.AutoAugmentImage',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='policy_name', full_name='object_detection.protos.AutoAugmentImage.policy_name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=True, default_value=_b("v0").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6530,
+  serialized_end=6573,
+)
+
+
+_DROPLABELPROBABILISTICALLY = _descriptor.Descriptor(
+  name='DropLabelProbabilistically',
+  full_name='object_detection.protos.DropLabelProbabilistically',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='label', full_name='object_detection.protos.DropLabelProbabilistically.label', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='drop_probability', full_name='object_detection.protos.DropLabelProbabilistically.drop_probability', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=True, default_value=float(1),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6575,
+  serialized_end=6647,
+)
+
+
+_REMAPLABELS = _descriptor.Descriptor(
+  name='RemapLabels',
+  full_name='object_detection.protos.RemapLabels',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='original_labels', full_name='object_detection.protos.RemapLabels.original_labels', index=0,
+      number=1, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='new_label', full_name='object_detection.protos.RemapLabels.new_label', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6649,
+  serialized_end=6706,
 )
 
 _PREPROCESSINGSTEP.fields_by_name['normalize_image'].message_type = _NORMALIZEIMAGE
@@ -1409,6 +1987,16 @@ _PREPROCESSINGSTEP.fields_by_name['subtract_channel_mean'].message_type = _SUBTR
 _PREPROCESSINGSTEP.fields_by_name['ssd_random_crop'].message_type = _SSDRANDOMCROP
 _PREPROCESSINGSTEP.fields_by_name['ssd_random_crop_pad'].message_type = _SSDRANDOMCROPPAD
 _PREPROCESSINGSTEP.fields_by_name['ssd_random_crop_fixed_aspect_ratio'].message_type = _SSDRANDOMCROPFIXEDASPECTRATIO
+_PREPROCESSINGSTEP.fields_by_name['ssd_random_crop_pad_fixed_aspect_ratio'].message_type = _SSDRANDOMCROPPADFIXEDASPECTRATIO
+_PREPROCESSINGSTEP.fields_by_name['random_vertical_flip'].message_type = _RANDOMVERTICALFLIP
+_PREPROCESSINGSTEP.fields_by_name['random_rotation90'].message_type = _RANDOMROTATION90
+_PREPROCESSINGSTEP.fields_by_name['rgb_to_gray'].message_type = _RGBTOGRAY
+_PREPROCESSINGSTEP.fields_by_name['convert_class_logits_to_softmax'].message_type = _CONVERTCLASSLOGITSTOSOFTMAX
+_PREPROCESSINGSTEP.fields_by_name['random_absolute_pad_image'].message_type = _RANDOMABSOLUTEPADIMAGE
+_PREPROCESSINGSTEP.fields_by_name['random_self_concat_image'].message_type = _RANDOMSELFCONCATIMAGE
+_PREPROCESSINGSTEP.fields_by_name['autoaugment_image'].message_type = _AUTOAUGMENTIMAGE
+_PREPROCESSINGSTEP.fields_by_name['drop_label_probabilistically'].message_type = _DROPLABELPROBABILISTICALLY
+_PREPROCESSINGSTEP.fields_by_name['remap_labels'].message_type = _REMAPLABELS
 _PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step'].fields.append(
   _PREPROCESSINGSTEP.fields_by_name['normalize_image'])
 _PREPROCESSINGSTEP.fields_by_name['normalize_image'].containing_oneof = _PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step']
@@ -1478,14 +2066,47 @@ _PREPROCESSINGSTEP.fields_by_name['ssd_random_crop_pad'].containing_oneof = _PRE
 _PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step'].fields.append(
   _PREPROCESSINGSTEP.fields_by_name['ssd_random_crop_fixed_aspect_ratio'])
 _PREPROCESSINGSTEP.fields_by_name['ssd_random_crop_fixed_aspect_ratio'].containing_oneof = _PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step']
+_PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step'].fields.append(
+  _PREPROCESSINGSTEP.fields_by_name['ssd_random_crop_pad_fixed_aspect_ratio'])
+_PREPROCESSINGSTEP.fields_by_name['ssd_random_crop_pad_fixed_aspect_ratio'].containing_oneof = _PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step']
+_PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step'].fields.append(
+  _PREPROCESSINGSTEP.fields_by_name['random_vertical_flip'])
+_PREPROCESSINGSTEP.fields_by_name['random_vertical_flip'].containing_oneof = _PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step']
+_PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step'].fields.append(
+  _PREPROCESSINGSTEP.fields_by_name['random_rotation90'])
+_PREPROCESSINGSTEP.fields_by_name['random_rotation90'].containing_oneof = _PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step']
+_PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step'].fields.append(
+  _PREPROCESSINGSTEP.fields_by_name['rgb_to_gray'])
+_PREPROCESSINGSTEP.fields_by_name['rgb_to_gray'].containing_oneof = _PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step']
+_PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step'].fields.append(
+  _PREPROCESSINGSTEP.fields_by_name['convert_class_logits_to_softmax'])
+_PREPROCESSINGSTEP.fields_by_name['convert_class_logits_to_softmax'].containing_oneof = _PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step']
+_PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step'].fields.append(
+  _PREPROCESSINGSTEP.fields_by_name['random_absolute_pad_image'])
+_PREPROCESSINGSTEP.fields_by_name['random_absolute_pad_image'].containing_oneof = _PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step']
+_PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step'].fields.append(
+  _PREPROCESSINGSTEP.fields_by_name['random_self_concat_image'])
+_PREPROCESSINGSTEP.fields_by_name['random_self_concat_image'].containing_oneof = _PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step']
+_PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step'].fields.append(
+  _PREPROCESSINGSTEP.fields_by_name['autoaugment_image'])
+_PREPROCESSINGSTEP.fields_by_name['autoaugment_image'].containing_oneof = _PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step']
+_PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step'].fields.append(
+  _PREPROCESSINGSTEP.fields_by_name['drop_label_probabilistically'])
+_PREPROCESSINGSTEP.fields_by_name['drop_label_probabilistically'].containing_oneof = _PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step']
+_PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step'].fields.append(
+  _PREPROCESSINGSTEP.fields_by_name['remap_labels'])
+_PREPROCESSINGSTEP.fields_by_name['remap_labels'].containing_oneof = _PREPROCESSINGSTEP.oneofs_by_name['preprocessing_step']
 _RESIZEIMAGE.fields_by_name['method'].enum_type = _RESIZEIMAGE_METHOD
 _RESIZEIMAGE_METHOD.containing_type = _RESIZEIMAGE
 _SSDRANDOMCROP.fields_by_name['operations'].message_type = _SSDRANDOMCROPOPERATION
 _SSDRANDOMCROPPAD.fields_by_name['operations'].message_type = _SSDRANDOMCROPPADOPERATION
 _SSDRANDOMCROPFIXEDASPECTRATIO.fields_by_name['operations'].message_type = _SSDRANDOMCROPFIXEDASPECTRATIOOPERATION
+_SSDRANDOMCROPPADFIXEDASPECTRATIO.fields_by_name['operations'].message_type = _SSDRANDOMCROPPADFIXEDASPECTRATIOOPERATION
 DESCRIPTOR.message_types_by_name['PreprocessingStep'] = _PREPROCESSINGSTEP
 DESCRIPTOR.message_types_by_name['NormalizeImage'] = _NORMALIZEIMAGE
 DESCRIPTOR.message_types_by_name['RandomHorizontalFlip'] = _RANDOMHORIZONTALFLIP
+DESCRIPTOR.message_types_by_name['RandomVerticalFlip'] = _RANDOMVERTICALFLIP
+DESCRIPTOR.message_types_by_name['RandomRotation90'] = _RANDOMROTATION90
 DESCRIPTOR.message_types_by_name['RandomPixelValueScale'] = _RANDOMPIXELVALUESCALE
 DESCRIPTOR.message_types_by_name['RandomImageScale'] = _RANDOMIMAGESCALE
 DESCRIPTOR.message_types_by_name['RandomRGBtoGray'] = _RANDOMRGBTOGRAY
@@ -1497,10 +2118,12 @@ DESCRIPTOR.message_types_by_name['RandomDistortColor'] = _RANDOMDISTORTCOLOR
 DESCRIPTOR.message_types_by_name['RandomJitterBoxes'] = _RANDOMJITTERBOXES
 DESCRIPTOR.message_types_by_name['RandomCropImage'] = _RANDOMCROPIMAGE
 DESCRIPTOR.message_types_by_name['RandomPadImage'] = _RANDOMPADIMAGE
+DESCRIPTOR.message_types_by_name['RandomAbsolutePadImage'] = _RANDOMABSOLUTEPADIMAGE
 DESCRIPTOR.message_types_by_name['RandomCropPadImage'] = _RANDOMCROPPADIMAGE
 DESCRIPTOR.message_types_by_name['RandomCropToAspectRatio'] = _RANDOMCROPTOASPECTRATIO
 DESCRIPTOR.message_types_by_name['RandomBlackPatches'] = _RANDOMBLACKPATCHES
 DESCRIPTOR.message_types_by_name['RandomResizeMethod'] = _RANDOMRESIZEMETHOD
+DESCRIPTOR.message_types_by_name['RGBtoGray'] = _RGBTOGRAY
 DESCRIPTOR.message_types_by_name['ScaleBoxesToPixelCoordinates'] = _SCALEBOXESTOPIXELCOORDINATES
 DESCRIPTOR.message_types_by_name['ResizeImage'] = _RESIZEIMAGE
 DESCRIPTOR.message_types_by_name['SubtractChannelMean'] = _SUBTRACTCHANNELMEAN
@@ -1510,6 +2133,14 @@ DESCRIPTOR.message_types_by_name['SSDRandomCropPadOperation'] = _SSDRANDOMCROPPA
 DESCRIPTOR.message_types_by_name['SSDRandomCropPad'] = _SSDRANDOMCROPPAD
 DESCRIPTOR.message_types_by_name['SSDRandomCropFixedAspectRatioOperation'] = _SSDRANDOMCROPFIXEDASPECTRATIOOPERATION
 DESCRIPTOR.message_types_by_name['SSDRandomCropFixedAspectRatio'] = _SSDRANDOMCROPFIXEDASPECTRATIO
+DESCRIPTOR.message_types_by_name['SSDRandomCropPadFixedAspectRatioOperation'] = _SSDRANDOMCROPPADFIXEDASPECTRATIOOPERATION
+DESCRIPTOR.message_types_by_name['SSDRandomCropPadFixedAspectRatio'] = _SSDRANDOMCROPPADFIXEDASPECTRATIO
+DESCRIPTOR.message_types_by_name['ConvertClassLogitsToSoftmax'] = _CONVERTCLASSLOGITSTOSOFTMAX
+DESCRIPTOR.message_types_by_name['RandomSelfConcatImage'] = _RANDOMSELFCONCATIMAGE
+DESCRIPTOR.message_types_by_name['AutoAugmentImage'] = _AUTOAUGMENTIMAGE
+DESCRIPTOR.message_types_by_name['DropLabelProbabilistically'] = _DROPLABELPROBABILISTICALLY
+DESCRIPTOR.message_types_by_name['RemapLabels'] = _REMAPLABELS
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 PreprocessingStep = _reflection.GeneratedProtocolMessageType('PreprocessingStep', (_message.Message,), dict(
   DESCRIPTOR = _PREPROCESSINGSTEP,
@@ -1531,6 +2162,20 @@ RandomHorizontalFlip = _reflection.GeneratedProtocolMessageType('RandomHorizonta
   # @@protoc_insertion_point(class_scope:object_detection.protos.RandomHorizontalFlip)
   ))
 _sym_db.RegisterMessage(RandomHorizontalFlip)
+
+RandomVerticalFlip = _reflection.GeneratedProtocolMessageType('RandomVerticalFlip', (_message.Message,), dict(
+  DESCRIPTOR = _RANDOMVERTICALFLIP,
+  __module__ = 'object_detection.protos.preprocessor_pb2'
+  # @@protoc_insertion_point(class_scope:object_detection.protos.RandomVerticalFlip)
+  ))
+_sym_db.RegisterMessage(RandomVerticalFlip)
+
+RandomRotation90 = _reflection.GeneratedProtocolMessageType('RandomRotation90', (_message.Message,), dict(
+  DESCRIPTOR = _RANDOMROTATION90,
+  __module__ = 'object_detection.protos.preprocessor_pb2'
+  # @@protoc_insertion_point(class_scope:object_detection.protos.RandomRotation90)
+  ))
+_sym_db.RegisterMessage(RandomRotation90)
 
 RandomPixelValueScale = _reflection.GeneratedProtocolMessageType('RandomPixelValueScale', (_message.Message,), dict(
   DESCRIPTOR = _RANDOMPIXELVALUESCALE,
@@ -1609,6 +2254,13 @@ RandomPadImage = _reflection.GeneratedProtocolMessageType('RandomPadImage', (_me
   ))
 _sym_db.RegisterMessage(RandomPadImage)
 
+RandomAbsolutePadImage = _reflection.GeneratedProtocolMessageType('RandomAbsolutePadImage', (_message.Message,), dict(
+  DESCRIPTOR = _RANDOMABSOLUTEPADIMAGE,
+  __module__ = 'object_detection.protos.preprocessor_pb2'
+  # @@protoc_insertion_point(class_scope:object_detection.protos.RandomAbsolutePadImage)
+  ))
+_sym_db.RegisterMessage(RandomAbsolutePadImage)
+
 RandomCropPadImage = _reflection.GeneratedProtocolMessageType('RandomCropPadImage', (_message.Message,), dict(
   DESCRIPTOR = _RANDOMCROPPADIMAGE,
   __module__ = 'object_detection.protos.preprocessor_pb2'
@@ -1636,6 +2288,13 @@ RandomResizeMethod = _reflection.GeneratedProtocolMessageType('RandomResizeMetho
   # @@protoc_insertion_point(class_scope:object_detection.protos.RandomResizeMethod)
   ))
 _sym_db.RegisterMessage(RandomResizeMethod)
+
+RGBtoGray = _reflection.GeneratedProtocolMessageType('RGBtoGray', (_message.Message,), dict(
+  DESCRIPTOR = _RGBTOGRAY,
+  __module__ = 'object_detection.protos.preprocessor_pb2'
+  # @@protoc_insertion_point(class_scope:object_detection.protos.RGBtoGray)
+  ))
+_sym_db.RegisterMessage(RGBtoGray)
 
 ScaleBoxesToPixelCoordinates = _reflection.GeneratedProtocolMessageType('ScaleBoxesToPixelCoordinates', (_message.Message,), dict(
   DESCRIPTOR = _SCALEBOXESTOPIXELCOORDINATES,
@@ -1699,6 +2358,55 @@ SSDRandomCropFixedAspectRatio = _reflection.GeneratedProtocolMessageType('SSDRan
   # @@protoc_insertion_point(class_scope:object_detection.protos.SSDRandomCropFixedAspectRatio)
   ))
 _sym_db.RegisterMessage(SSDRandomCropFixedAspectRatio)
+
+SSDRandomCropPadFixedAspectRatioOperation = _reflection.GeneratedProtocolMessageType('SSDRandomCropPadFixedAspectRatioOperation', (_message.Message,), dict(
+  DESCRIPTOR = _SSDRANDOMCROPPADFIXEDASPECTRATIOOPERATION,
+  __module__ = 'object_detection.protos.preprocessor_pb2'
+  # @@protoc_insertion_point(class_scope:object_detection.protos.SSDRandomCropPadFixedAspectRatioOperation)
+  ))
+_sym_db.RegisterMessage(SSDRandomCropPadFixedAspectRatioOperation)
+
+SSDRandomCropPadFixedAspectRatio = _reflection.GeneratedProtocolMessageType('SSDRandomCropPadFixedAspectRatio', (_message.Message,), dict(
+  DESCRIPTOR = _SSDRANDOMCROPPADFIXEDASPECTRATIO,
+  __module__ = 'object_detection.protos.preprocessor_pb2'
+  # @@protoc_insertion_point(class_scope:object_detection.protos.SSDRandomCropPadFixedAspectRatio)
+  ))
+_sym_db.RegisterMessage(SSDRandomCropPadFixedAspectRatio)
+
+ConvertClassLogitsToSoftmax = _reflection.GeneratedProtocolMessageType('ConvertClassLogitsToSoftmax', (_message.Message,), dict(
+  DESCRIPTOR = _CONVERTCLASSLOGITSTOSOFTMAX,
+  __module__ = 'object_detection.protos.preprocessor_pb2'
+  # @@protoc_insertion_point(class_scope:object_detection.protos.ConvertClassLogitsToSoftmax)
+  ))
+_sym_db.RegisterMessage(ConvertClassLogitsToSoftmax)
+
+RandomSelfConcatImage = _reflection.GeneratedProtocolMessageType('RandomSelfConcatImage', (_message.Message,), dict(
+  DESCRIPTOR = _RANDOMSELFCONCATIMAGE,
+  __module__ = 'object_detection.protos.preprocessor_pb2'
+  # @@protoc_insertion_point(class_scope:object_detection.protos.RandomSelfConcatImage)
+  ))
+_sym_db.RegisterMessage(RandomSelfConcatImage)
+
+AutoAugmentImage = _reflection.GeneratedProtocolMessageType('AutoAugmentImage', (_message.Message,), dict(
+  DESCRIPTOR = _AUTOAUGMENTIMAGE,
+  __module__ = 'object_detection.protos.preprocessor_pb2'
+  # @@protoc_insertion_point(class_scope:object_detection.protos.AutoAugmentImage)
+  ))
+_sym_db.RegisterMessage(AutoAugmentImage)
+
+DropLabelProbabilistically = _reflection.GeneratedProtocolMessageType('DropLabelProbabilistically', (_message.Message,), dict(
+  DESCRIPTOR = _DROPLABELPROBABILISTICALLY,
+  __module__ = 'object_detection.protos.preprocessor_pb2'
+  # @@protoc_insertion_point(class_scope:object_detection.protos.DropLabelProbabilistically)
+  ))
+_sym_db.RegisterMessage(DropLabelProbabilistically)
+
+RemapLabels = _reflection.GeneratedProtocolMessageType('RemapLabels', (_message.Message,), dict(
+  DESCRIPTOR = _REMAPLABELS,
+  __module__ = 'object_detection.protos.preprocessor_pb2'
+  # @@protoc_insertion_point(class_scope:object_detection.protos.RemapLabels)
+  ))
+_sym_db.RegisterMessage(RemapLabels)
 
 
 # @@protoc_insertion_point(module_scope)

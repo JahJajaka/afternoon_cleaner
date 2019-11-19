@@ -11,22 +11,26 @@ MODEL_NAME: 'ssd_mobilenet_v2_coco_2018_03_29'
 NUM_CLASSES: 90
 DOWNLOAD_BASE: 'http://download.tensorflow.org/models/object_detection/'
 MIN_SCORE_THRESH: 0.5
+TRAINING_MODE: 0
 
 ARGS:
   STREAM_IN: null
-  #VIDEO_SOURCE: 'http://user:password@192.168.0.1:80/media/?action=stream' #stream from local webcam
+  #VIDEO_SOURCE: 'http://192.168.0.0:80/media/?action=stream' #stream from local webcam
   VIDEO_SOURCE: 0  #stream from laptop webcam
   WIDTH: 640
   HEIGHT: 480
   STREAM_OUT: null
 
 DETECTED: ['person', 'dog', 'bowl', 'refrigerator']
+MAIN_CLASS: ''
+SUBCLASS: ''
+SAVE_FRAME: 1 #save frame with detected object every number of seconds
 
 ROBOT:
-  IP: 'vacuum_ip'
-  TOKEN: 'vacuum_token'
-  SOUND_DIR_HTTP: 'http://192.168.0.3/'
-  SOUND_DIR_FTP: '192.168.0.3'
+  IP: '192.168.0.0'
+  TOKEN: ''
+  SOUND_DIR_HTTP: 'http://192.168.0.0/'
+  SOUND_DIR_FTP: '192.168.0.0'
   SOUND_DIR_LOCAL: 'local_path'
   FAN_SPEED: 1
 
