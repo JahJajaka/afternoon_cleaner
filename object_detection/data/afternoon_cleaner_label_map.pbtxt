@@ -1,0 +1,29 @@
+item {
+  id: 1
+  name: 'evgenii'
+}
+
+item {
+  id: 2
+  name: 'sasha'
+}
+
+item {
+  id: 3
+  name: 'mark'
+}
+
+item {
+  id: 4
+  name: 'dog'
+}
+
+item {
+  id: 5
+  name: 'refrigerator'
+}
+
+item {
+  id: 6
+  name: 'bowl'
+}
