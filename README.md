@@ -119,8 +119,8 @@ IMPORTANT: python 3.6 (64bit in case of Windows), tensorflow 1.15, opencv 3.4
 
 **2. Run training.**
 
-  * Run `pip install setup.py` from `slim` folder.
-  
+  * Run `python setup.py install` from `slim` folder.
+
   * Open `pipeline.config` in your model folder and edit `num_classes:`, `fine_tune_checkpoint:`, `label_map_path:` and `input_path:` for train and validation reader.
 
   * Open `train.py` and setup `'num_train_steps'` parameter. Then run `train.py`.
