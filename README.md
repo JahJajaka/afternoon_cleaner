@@ -6,7 +6,9 @@ With this app your Xiaomi Vacuum Cleaner be able to react on the things that he 
 In training mode you can collect annotated data for transfer learning and then train your Xiaomi Vacuum Cleaner to recognize family members or specific objects.
 
 ## Demo
-coming soon...
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=s4Qufob6oNQ
+" target="_blank"><img src="http://img.youtube.com/vi/s4Qufob6oNQ/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="640" height="480" border="10" /></a>
 
 ## Requirements
 1. Your Xiaomi Vacuum Cleaner V1 must be rooted. All procedures were done for V1. I'm not sure if all the same is applicable for later versions   
