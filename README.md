@@ -137,4 +137,6 @@ IMPORTANT: python 3.6 (64bit in case of Windows), tensorflow 1.15, opencv 3.4
 
   * Put `my_model` under `MODEL_NAME` parameter in config.yaml and edit `NUM_CLASSES` with you number of classes.
 
+  * In `obj_detection.py` change path to labels. It should point to your labels now: `label_map = label_map_util.load_labelmap(PATH_TO_MY_LABELS)`
+
   * Run `start.py` as usual.

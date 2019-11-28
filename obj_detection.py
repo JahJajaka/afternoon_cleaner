@@ -30,7 +30,6 @@ cfg = load_yaml(config_folder)
 # Path to frozen detection graph. This is the actual model that is used for the object detection.
 MODEL_NAME =cfg['MODEL_NAME']
 MODEL_FILE = MODEL_NAME + '.tar.gz'
-#data = urllib.parse.urlencode(MODEL_FILE).encode("utf-8")
 #PATH_TO_CKPT = os.path.join(CWD_PATH, 'object_detection', 'datasets', MODEL_NAME, 'tflite_graph.pb')
 PATH_TO_CKPT = os.path.join(CWD_PATH, 'object_detection', 'datasets', MODEL_NAME, 'frozen_inference_graph.pb')
 
@@ -39,15 +38,17 @@ PATH_TO_LABELS = os.path.join(CWD_PATH, 'object_detection', 'data', 'mscoco_labe
 MY_DATASET = os.path.join(CWD_PATH, 'object_detection', 'datasets', 'my_dataset', 'full_dataset')
 NUM_CLASSES =  cfg['NUM_CLASSES']
 
+#own label_map for TRAINING_MODE
+PATH_TO_MY_LABELS = os.path.join(CWD_PATH, 'object_detection', 'data', 'afternoon_cleaner_label_map.pbtxt')
+my_labels = label_map_util.get_label_map_dict(PATH_TO_MY_LABELS)
+
 # Loading label map
-label_map = label_map_util.load_labelmap(PATH_TO_LABELS)
+label_map = label_map_util.load_labelmap(PATH_TO_MY_LABELS)
 categories = label_map_util.convert_label_map_to_categories(label_map, max_num_classes=NUM_CLASSES,
                                                             use_display_name=True)
 category_index = label_map_util.create_category_index(categories)
 
-#own label_map for TRAINING_MODE
-PATH_TO_MY_LABELS = os.path.join(CWD_PATH, 'object_detection', 'data', 'afternoon_cleaner_label_map.pbtxt')
-my_labels = label_map_util.get_label_map_dict(PATH_TO_MY_LABELS)
+
 
 
 #Download MODEL
@@ -206,6 +207,7 @@ def recognition(robot_q):
                                 'ymin': [point['ymin']],
                                 'ymax': [point['ymax']],
                                 'image_format': 'jpg',
+                                'main_class': [cfg['MAIN_CLASS']],
                                 'class_text': [name_only],
                                 'class': [my_labels.get(name_only)]
                             })
