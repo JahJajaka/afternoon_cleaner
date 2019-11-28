@@ -7,7 +7,7 @@ In training mode you can collect annotated data for transfer learning and then t
 
 ## Demo
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=s4Qufob6oNQ
-" target="_blank"><img src="http://img.youtube.com/vi/s4Qufob6oNQ/0.jpg" 
+" target="_blank"><img src="http://img.youtube.com/vi/s4Qufob6oNQ/0.jpg"
 alt="IMAGE ALT TEXT HERE" width="640" height="480" border="10" /></a>
 
 ## Requirements
@@ -128,3 +128,13 @@ IMPORTANT: python 3.6 (64bit in case of Windows), tensorflow 1.15, opencv 3.4
   * Open `train.py` and setup `'num_train_steps'` parameter. Then run `train.py`.
 
   * To see the progress in tensorboard. Open another command line and run `tensorboard --logdir=${MODEL_DIR}` where `${MODEL_DIR}` is the directory with train and eval datasets.
+
+**3. Run inference on trained data.**
+
+  * When training is over number of checkpoints saved in `results` folder. You need to create from one of them `frozen_inference_graph.pb`. To do this, run `export_inference_graph.py` from `object_detection` folder with parameters like these: `python export_inference_graph.py --input_type image_tensor --pipeline_config_path ~/afternoon_cleaner/object_detection/datasets/ssd_mobilenet_v2_coco_2018_03_29/pipeline.config --trained_checkpoint_prefix ~/afternoon_cleaner/object_detection/datasets/my_model/model.ckpt-10000 --output_directory ~/afternoon_cleaner/object_detection/datasets/my_model`
+
+  * If problems with import from `object_detection` folder occur, install all missing dependencies with `pip install tensorflow-object-detection-api`
+
+  * Put `my_model` under `MODEL_NAME` parameter in config.yaml and edit `NUM_CLASSES` with you number of classes.
+
+  * Run `start.py` as usual.
