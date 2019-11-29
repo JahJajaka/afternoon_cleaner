@@ -30,7 +30,7 @@ from object_detection.utils.app_utils import load_yaml
 CWD_PATH = os.getcwd()
 config_folder =os.path.join(CWD_PATH, 'config.yaml')
 cfg = load_yaml(config_folder)
-MODEL_DIR_OUT = os.path.join(CWD_PATH, 'object_detection', 'datasets', 'my_dataset', 'results')
+MODEL_DIR_OUT = os.path.join(CWD_PATH, os.path.abspath(cfg['TRAINING_RESULTS']))
 PIPELINE_CONFIG_PATH = os.path.join(CWD_PATH, 'object_detection', 'datasets', cfg['MODEL_NAME'], 'pipeline.config' )
 
 flags.DEFINE_string(

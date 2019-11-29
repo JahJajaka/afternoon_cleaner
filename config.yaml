@@ -1,4 +1,8 @@
-MODEL_NAME: 'ssd_mobilenet_v2_coco_2018_03_29'
+MODEL_NAME: 'my_model'
+#'mask_rcnn_inception_resnet_v2_atrous_coco_2018_01_28'
+#'my_model'
+#'ssd_resnet50_v1_fpn_shared_box_predictor_640x640_coco14_sync_2018_07_03'
+#'ssd_mobilenet_v2_coco_2018_03_29'
 #ssd_mobilenet_v1_0.75_depth_300x300_coco14_sync_2018_07_03  - 12 fps
 #ssd_mobilenet_v1_ppn_shared_box_predictor_300x300_coco14_sync_2018_07_03  - 10 fps
 #ssdlite_mobilenet_v2_coco_2018_05_09'  - 8.5 fps
@@ -8,29 +12,45 @@ MODEL_NAME: 'ssd_mobilenet_v2_coco_2018_03_29'
 
 #ssd_mobilenet_v1_quantized_300x300_coco14_sync_2018_07_18  - Op type not registered 'TFLite_Detection_PostProcess' in binary running?
 #ssd_mobilenet_v1_0.75_depth_quantized_300x300_coco14_sync_2018_07_18  -  Op type not registered 'TFLite_Detection_PostProcess' in binary running
-NUM_CLASSES: 90
+NUM_CLASSES: 6
 DOWNLOAD_BASE: 'http://download.tensorflow.org/models/object_detection/'
 MIN_SCORE_THRESH: 0.5
 TRAINING_MODE: 0
+TRAINING_RESULTS: 'object_detection/datasets/my_dataset/results'
+
+
+PATH_TO_LABELS: 'object_detection/data/afternoon_cleaner_label_map.pbtxt'
+#'object_detection/data/mscoco_label_map.pbtxt'
+#'object_detection/data/afternoon_cleaner_label_map.pbtxt'
+MY_DATASET: 'object_detection/data/datasets/my_dataset/full_dataset'
+DOWONLOAD_DIRECTORY: 'object_detection'
+PIPELINE_CONFIG_PATH: 'object_detection/datasets/my_model/pipeline.config'
+CHECKPOINT: 'object_detection/datasets/my_model/model.ckpt-10000'
+GRAPH_DIRECTORY: 'object_detection/datasets/my_model'
+
+
+
+
 
 ARGS:
   STREAM_IN: null
-  #VIDEO_SOURCE: 'http://192.168.0.0:80/media/?action=stream' #stream from local webcam
+  #VIDEO_SOURCE: 'http://admin:@192.168.0.10:80/media/?action=stream' #stream from local webcam
   VIDEO_SOURCE: 0  #stream from laptop webcam
   WIDTH: 640
   HEIGHT: 480
   STREAM_OUT: null
 
-DETECTED: ['person', 'dog', 'bowl', 'refrigerator']
+#DETECTED: ['person', 'dog', 'bowl', 'refrigerator']
+DETECTED: ['sasha', 'evgenii', 'dog', 'bowl', 'refrigerator', 'mark']
 MAIN_CLASS: ''
 SUBCLASS: ''
 SAVE_FRAME: 1 #save frame with detected object every number of seconds
 
 ROBOT:
-  IP: '192.168.0.0'
+  IP: '192.168.0.8'
   TOKEN: ''
-  SOUND_DIR_HTTP: 'http://192.168.0.0/'
-  SOUND_DIR_FTP: '192.168.0.0'
+  SOUND_DIR_HTTP: 'http://192.168.0.5/'
+  SOUND_DIR_FTP: '192.168.0.5'
   SOUND_DIR_LOCAL: 'local_path'
   FAN_SPEED: 1
 

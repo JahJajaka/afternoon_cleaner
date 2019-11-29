@@ -30,20 +30,18 @@ cfg = load_yaml(config_folder)
 # Path to frozen detection graph. This is the actual model that is used for the object detection.
 MODEL_NAME =cfg['MODEL_NAME']
 MODEL_FILE = MODEL_NAME + '.tar.gz'
-#PATH_TO_CKPT = os.path.join(CWD_PATH, 'object_detection', 'datasets', MODEL_NAME, 'tflite_graph.pb')
-PATH_TO_CKPT = os.path.join(CWD_PATH, 'object_detection', 'datasets', MODEL_NAME, 'frozen_inference_graph.pb')
-
-# List of the strings that is used to add correct label for each box.
-PATH_TO_LABELS = os.path.join(CWD_PATH, 'object_detection', 'data', 'mscoco_label_map.pbtxt')
-MY_DATASET = os.path.join(CWD_PATH, 'object_detection', 'datasets', 'my_dataset', 'full_dataset')
 NUM_CLASSES =  cfg['NUM_CLASSES']
 
+PATH_TO_CKPT = os.path.join(CWD_PATH, 'object_detection', 'datasets', MODEL_NAME, 'frozen_inference_graph.pb')
+PATH_TO_LABELS = os.path.join(CWD_PATH, os.path.abspath(cfg['PATH_TO_LABELS']))
+MY_DATASET = os.path.join(CWD_PATH, os.path.abspath(cfg['MY_DATASET']))
+
+
 #own label_map for TRAINING_MODE
-PATH_TO_MY_LABELS = os.path.join(CWD_PATH, 'object_detection', 'data', 'afternoon_cleaner_label_map.pbtxt')
-my_labels = label_map_util.get_label_map_dict(PATH_TO_MY_LABELS)
+my_labels = label_map_util.get_label_map_dict(PATH_TO_LABELS)
 
 # Loading label map
-label_map = label_map_util.load_labelmap(PATH_TO_MY_LABELS)
+label_map = label_map_util.load_labelmap(PATH_TO_LABELS)
 categories = label_map_util.convert_label_map_to_categories(label_map, max_num_classes=NUM_CLASSES,
                                                             use_display_name=True)
 category_index = label_map_util.create_category_index(categories)
@@ -54,7 +52,7 @@ category_index = label_map_util.create_category_index(categories)
 #Download MODEL
 if not os.path.exists(PATH_TO_CKPT):
     DOWNLOAD_BASE = cfg['DOWNLOAD_BASE']
-    DOWONLOAD_DIRECTORY = os.path.join(CWD_PATH, 'object_detection')
+    DOWONLOAD_DIRECTORY = os.path.join(CWD_PATH, cfg['DOWONLOAD_DIRECTORY'])
     model_dir = tf.keras.utils.get_file(fname=MODEL_NAME,origin=DOWNLOAD_BASE + MODEL_FILE,untar=True,cache_dir=DOWONLOAD_DIRECTORY)
 # In[3]:
 

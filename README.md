@@ -131,12 +131,12 @@ IMPORTANT: python 3.6 (64bit in case of Windows), tensorflow 1.15, opencv 3.4
 
 **3. Run inference on trained data.**
 
-  * When training is over number of checkpoints saved in `results` folder. You need to create from one of them `frozen_inference_graph.pb`. To do this, run `export_inference_graph.py` from `object_detection` folder with parameters like these: `python export_inference_graph.py --input_type image_tensor --pipeline_config_path ~/afternoon_cleaner/object_detection/datasets/ssd_mobilenet_v2_coco_2018_03_29/pipeline.config --trained_checkpoint_prefix ~/afternoon_cleaner/object_detection/datasets/my_model/model.ckpt-10000 --output_directory ~/afternoon_cleaner/object_detection/datasets/my_model`
+  * When training is over, number of checkpoints saved in `results` folder. You need to create `frozen_inference_graph.pb` from one of them. To do this, setup: `PIPELINE_CONFIG_PATH`, `CHECKPOINT` and `GRAPH_DIRECTORY` in `config.yaml`, then run `export_inference_graph.py`
 
   * If problems with import from `object_detection` folder occur, install all missing dependencies with `pip install tensorflow-object-detection-api`
 
-  * Put `my_model` under `MODEL_NAME` parameter in config.yaml and edit `NUM_CLASSES` with you number of classes.
+  * Put `my_model` under `MODEL_NAME` parameter in config.yaml and edit `NUM_CLASSES` with your number of classes.
 
-  * In `obj_detection.py` change path to labels. It should point to your labels now: `label_map = label_map_util.load_labelmap(PATH_TO_MY_LABELS)`
+  * Setup 'PATH_TO_LABELS' in `config.yaml` with path to your labels.
 
   * Run `start.py` as usual.
