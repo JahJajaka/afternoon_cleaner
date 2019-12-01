@@ -20,9 +20,8 @@ TRAINING_RESULTS: 'object_detection/datasets/my_dataset/results'
 
 
 PATH_TO_LABELS: 'object_detection/data/afternoon_cleaner_label_map.pbtxt'
-#'object_detection/data/mscoco_label_map.pbtxt'
-#'object_detection/data/afternoon_cleaner_label_map.pbtxt'
-MY_DATASET: 'object_detection/data/datasets/my_dataset/full_dataset'
+PATH_TO_MY_LABELS: 'object_detection/data/afternoon_cleaner_label_map.pbtxt'
+MY_DATASET: 'object_detection/datasets/my_dataset/full_dataset'
 DOWONLOAD_DIRECTORY: 'object_detection'
 PIPELINE_CONFIG_PATH: 'object_detection/datasets/my_model/pipeline.config'
 CHECKPOINT: 'object_detection/datasets/my_model/model.ckpt-10000'
@@ -41,7 +40,7 @@ ARGS:
   STREAM_OUT: null
 
 #DETECTED: ['person', 'dog', 'bowl', 'refrigerator']
-DETECTED: ['sasha', 'evgenii', 'dog', 'bowl', 'refrigerator', 'mark']
+DETECTED: ['Sasha', 'Evgenii', 'Gektor', 'bowl', 'refrigerator', 'Mark']
 MAIN_CLASS: ''
 SUBCLASS: ''
 SAVE_FRAME: 1 #save frame with detected object every number of seconds

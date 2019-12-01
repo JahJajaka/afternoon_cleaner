@@ -1,21 +1,21 @@
 item {
   id: 1
-  name: 'evgenii'
+  name: 'Evgenii'
 }
 
 item {
   id: 2
-  name: 'sasha'
+  name: 'Sasha'
 }
 
 item {
   id: 3
-  name: 'mark'
+  name: 'Mark'
 }
 
 item {
   id: 4
-  name: 'dog'
+  name: 'Gektor'
 }
 
 item {

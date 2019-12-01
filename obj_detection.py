@@ -34,11 +34,12 @@ NUM_CLASSES =  cfg['NUM_CLASSES']
 
 PATH_TO_CKPT = os.path.join(CWD_PATH, 'object_detection', 'datasets', MODEL_NAME, 'frozen_inference_graph.pb')
 PATH_TO_LABELS = os.path.join(CWD_PATH, os.path.abspath(cfg['PATH_TO_LABELS']))
+PATH_TO_MY_LABELS = os.path.join(CWD_PATH, os.path.abspath(cfg['PATH_TO_MY_LABELS']))
 MY_DATASET = os.path.join(CWD_PATH, os.path.abspath(cfg['MY_DATASET']))
 
 
 #own label_map for TRAINING_MODE
-my_labels = label_map_util.get_label_map_dict(PATH_TO_LABELS)
+my_labels = label_map_util.get_label_map_dict(PATH_TO_MY_LABELS)
 
 # Loading label map
 label_map = label_map_util.load_labelmap(PATH_TO_LABELS)
