@@ -126,8 +126,6 @@ def worker(input_q, output_q):
 
 def recognition(robot_q):
     last_saved = 0
-    annotations = {}
-    annotations['images'] = []
     parser = argparse.ArgumentParser()
     #parser.add_argument('-strin', '--stream-input', dest="stream_in", action='store', type=str, default=None)
     #parser.add_argument('-src', '--source', dest='video_source', type=str,
@@ -194,23 +192,9 @@ def recognition(robot_q):
                         if name_only==cfg['MAIN_CLASS']:
                             name_only = cfg['SUBCLASS']
                         if t > last_saved + cfg['SAVE_FRAME']:
-                            jpg_name = "{}\\{}_{}.jpg".format(MY_DATASET, name_only, t)
+                            jpg_name = os.path.join(MY_DATASET,"{}_{}_{}.jpg".format(cfg['MAIN_CLASS'], name_only, t))
                             cv2.imwrite(jpg_name, frame)
                             last_saved = t
-                            annotations['images'].append({
-                                'height': args.height,
-                                'width': args.width,
-                                'file_name': jpg_name.split('\\')[-1],
-                                'xmin': [point['xmin']],
-                                'xmax': [point['xmax']],
-                                'ymin': [point['ymin']],
-                                'ymax': [point['ymax']],
-                                'image_format': 'jpg',
-                                'main_class': [cfg['MAIN_CLASS']],
-                                'class_text': [name_only],
-                                'class': [my_labels.get(name_only)]
-                            })
-
 
                     cv2.rectangle(frame, (int(point['xmin'] * args.width), int(point['ymin'] * args.height)),
                                   (int(point['xmax'] * args.width), int(point['ymax'] * args.height)), color, 3)
@@ -235,9 +219,6 @@ def recognition(robot_q):
 
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
-            if cfg['TRAINING_MODE']:
-                json_path = os.path.join(MY_DATASET,'annotations.json')
-                data_utils.save_annotations(json_path,annotations)
             robot_q.put("exit")
             break
 

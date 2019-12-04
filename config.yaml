@@ -19,7 +19,7 @@ TRAINING_MODE: 0
 TRAINING_RESULTS: 'object_detection/datasets/my_dataset/results'
 
 
-PATH_TO_LABELS: 'object_detection/data/afternoon_cleaner_label_map.pbtxt'
+PATH_TO_LABELS: 'object_detection/data/mscoco_label_map.pbtxt'
 PATH_TO_MY_LABELS: 'object_detection/data/afternoon_cleaner_label_map.pbtxt'
 MY_DATASET: 'object_detection/datasets/my_dataset/full_dataset'
 DOWONLOAD_DIRECTORY: 'object_detection'
