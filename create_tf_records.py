@@ -86,29 +86,47 @@ def create_annotations(images_path, my_labels, path_to_annotations, height, widt
             tf.import_graph_def(od_graph_def, name='')
     sess = tf.Session(graph=detection_graph)
     for image_path in tqdm_notebook(images_path):
-        file_name = image_path.split('\\')[-1]
+        file_name = image_path.split(os.sep)[-1]
         main_class = file_name.split('_')[0]
         subclass = file_name.split('_')[1]
+        #annotate background images
+        if main_class == 'background':
+            annotations['images'].append({
+                    'height': height,
+                    'width': width,
+                    'file_name': file_name,
+                    'xmin': [],
+                    'xmax': [],
+                    'ymin': [],
+                    'ymax': [],
+                    'image_format': 'jpg',
+                    'main_class': [main_class],
+                    'class_text': [subclass],
+                    'class': [0]
+            })
+            continue
         image_np = cv2.imread(image_path)
         data = detect_objects(image_np, sess, detection_graph)
         rec_points = data['rect_points']
         class_names = data['class_names']
         for point, name in zip(rec_points, class_names):
             name_only = name[0].split(':')[0]
-            if name_only == main_class:
-                annotations['images'].append({
-                        'height': height,
-                        'width': width,
-                        'file_name': file_name,
-                        'xmin': [point['xmin']],
-                        'xmax': [point['xmax']],
-                        'ymin': [point['ymin']],
-                        'ymax': [point['ymax']],
-                        'image_format': 'jpg',
-                        'main_class': [name_only],
-                        'class_text': [subclass],
-                        'class': [my_labels.get(subclass)]
-                })
+            detections = [name for name in class_names if name[0].split(':')[0] in cfg['DETECTED']]
+            if len(detections) == 1:
+                if name_only == main_class:
+                    annotations['images'].append({
+                            'height': height,
+                            'width': width,
+                            'file_name': file_name,
+                            'xmin': [point['xmin']],
+                            'xmax': [point['xmax']],
+                            'ymin': [point['ymin']],
+                            'ymax': [point['ymax']],
+                            'image_format': 'jpg',
+                            'main_class': [name_only],
+                            'class_text': [subclass],
+                            'class': [my_labels.get(subclass)]
+                    })
     print("{} objects have been annotated".format(len(annotations['images'])))
     data_utils.save_annotations(path_to_annotations, annotations)
 
@@ -167,9 +185,9 @@ def create_tf_records(path_to_tf_records, path_to_annotations, path_to_images):
 
 if __name__ == '__main__':
     #create annotations.json file from collected images
-    create_annotations(IMAGE_PATHS, my_labels, path_to_annotations, cfg['ARGS']['HEIGHT'], cfg['ARGS']['WIDTH'])  
+    create_annotations(IMAGE_PATHS, my_labels, path_to_annotations, cfg['ARGS']['HEIGHT'], cfg['ARGS']['WIDTH'])
     #split data to train and val datasets
-    data_utils.split_dataset_sklearn(PATH_TO_MY_LABELS, FULL_DATASET, MY_DATASET)
+    data_utils.split_dataset_sklearn(FULL_DATASET, MY_DATASET)
     #create train_tf_record
     train_tf_record_path = os.path.join(MY_DATASET, 'train', 'TFRecord')
     train_annotations_path = os.path.join(MY_DATASET, 'train', 'annotations.json')

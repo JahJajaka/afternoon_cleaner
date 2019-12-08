@@ -42,7 +42,7 @@ MY_DATASET = os.path.join(CWD_PATH, os.path.abspath(cfg['MY_DATASET']))
 my_labels = label_map_util.get_label_map_dict(PATH_TO_MY_LABELS)
 
 # Loading label map
-label_map = label_map_util.load_labelmap(PATH_TO_LABELS)
+label_map = label_map_util.load_labelmap(PATH_TO_MY_LABELS)
 categories = label_map_util.convert_label_map_to_categories(label_map, max_num_classes=NUM_CLASSES,
                                                             use_display_name=True)
 category_index = label_map_util.create_category_index(categories)
@@ -124,7 +124,7 @@ def worker(input_q, output_q):
 
 
 
-def recognition(robot_q):
+def recognition(robot_q, photo_q):
     last_saved = 0
     parser = argparse.ArgumentParser()
     #parser.add_argument('-strin', '--stream-input', dest="stream_in", action='store', type=str, default=None)
@@ -177,6 +177,14 @@ def recognition(robot_q):
 
         t = time.time()
 
+        #save frame by pressing button on dualshock
+        while not photo_q.empty():
+            jpg_name = os.path.join(MY_DATASET,"{}_{}_{}.jpg".format(cfg['MAIN_CLASS'], cfg['SUBCLASS'], t))
+            cv2.imwrite(jpg_name, frame)
+            print("frame saved to: {}".format(jpg_name))
+            photo_q.queue.clear()
+
+
         if output_q.empty():
             pass  # fill up queue
         else:
@@ -209,6 +217,8 @@ def recognition(robot_q):
                     if robot_q.qsize()>2:
                         with robot_q.mutex:
                             robot_q.queue.clear()
+
+
             if args.stream_out:
                 print('Streaming elsewhere!')
             else:

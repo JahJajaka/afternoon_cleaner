@@ -22,7 +22,7 @@ def save_annotations(path_to_json, annotations_dist):
             json.dump(feeds, outfile, indent=4)
 
 
-def split_dataset_sklearn(map_path, path_to_full_dataset, path_to_my_dataset, val_size=0.25):
+def split_dataset_sklearn(path_to_full_dataset, path_to_my_dataset, map_path=None, val_size=0.25):
     annotations_path = os.path.join(path_to_full_dataset, 'annotations.json')
     #update_classes_from_map(map_path, annotations_path)
     with open(annotations_path) as feedsjson:
@@ -45,6 +45,10 @@ def split_dataset_sklearn(map_path, path_to_full_dataset, path_to_my_dataset, va
         annotations['images'] = [image for image in images if image['file_name'] in values]
         print("{} annotations: {}".format(key, len(annotations['images'])))
         save_annotations(os.path.join(path_to_my_dataset, key , 'annotations.json'), annotations)
+
+
+
+
 
 
 #these two functions used to update annotations and file_names after dataset

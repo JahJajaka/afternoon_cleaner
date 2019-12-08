@@ -59,7 +59,7 @@ def move_robot(bot, buttons, axis):
         bot.manual_control(rot, val, 150)
 
 
-def moving_thread():
+def moving_thread(photo_q):
     controller = init_joystick()
     bot = miio.vacuum.Vacuum(ip, token)
     bot.set_fan_speed(cfg['ROBOT']['FAN_SPEED'])
@@ -94,7 +94,7 @@ def moving_thread():
                     elif event.button == BUTTON_X:
                         pass
                     elif event.button == BUTTON_CIRCLE:
-                        pass
+                        photo_q.put("save_frame")
 
         if mode == 'manual':
             try:
