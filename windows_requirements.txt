@@ -13,7 +13,7 @@ Click==7.0
 colorama==0.4.1
 construct==2.9.45
 contextlib2==0.6.0.post1
-cryptography==2.8
+cryptography==3.2
 cycler==0.10.0
 Cython==0.29.14
 decorator==4.4.0
